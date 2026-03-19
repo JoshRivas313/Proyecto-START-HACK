@@ -1,0 +1,2080 @@
+{
+ "Parameters": {
+  "DynamoDBModelTableReadIOPS": {
+   "Type": "Number",
+   "Default": 5,
+   "Description": "The number of read IOPS the table should support."
+  },
+  "DynamoDBModelTableWriteIOPS": {
+   "Type": "Number",
+   "Default": 5,
+   "Description": "The number of write IOPS the table should support."
+  },
+  "DynamoDBBillingMode": {
+   "Type": "String",
+   "Default": "PAY_PER_REQUEST",
+   "AllowedValues": [
+    "PAY_PER_REQUEST",
+    "PROVISIONED"
+   ],
+   "Description": "Configure @model types to create DynamoDB tables with PAY_PER_REQUEST or PROVISIONED billing modes."
+  },
+  "DynamoDBEnablePointInTimeRecovery": {
+   "Type": "String",
+   "Default": "false",
+   "AllowedValues": [
+    "true",
+    "false"
+   ],
+   "Description": "Whether to enable Point in Time Recovery on the table."
+  },
+  "DynamoDBEnableServerSideEncryption": {
+   "Type": "String",
+   "Default": "true",
+   "AllowedValues": [
+    "true",
+    "false"
+   ],
+   "Description": "Enable server side encryption powered by KMS."
+  },
+  "referencetoamplifyhackathonmarshurtasandbox123939c82edataamplifyDataAmplifyTableManagerNestedStackAmplifyTableManagerNestedStackResource7D05FBC4Outputsamplifyhackathonmarshurtasandbox123939c82edataamplifyDataAmplifyTableManagerTableManagerC44AD76E4": {
+   "Type": "String"
+  },
+  "referencetoamplifyhackathonmarshurtasandbox123939c82edataamplifyDataGraphQLAPI90B2654BApiId": {
+   "Type": "String"
+  },
+  "referencetoamplifyhackathonmarshurtasandbox123939c82edataamplifyDataGraphQLAPINONEDS57A4E1B6Name": {
+   "Type": "String"
+  },
+  "referencetoamplifyhackathonmarshurtasandbox123939c82eauthNestedStackauthNestedStackResource0793AF54Outputsamplifyhackathonmarshurtasandbox123939c82eauthamplifyAuthauthenticatedUserRoleD3DC2A83Ref": {
+   "Type": "String"
+  },
+  "referencetoamplifyhackathonmarshurtasandbox123939c82eauthNestedStackauthNestedStackResource0793AF54Outputsamplifyhackathonmarshurtasandbox123939c82eauthamplifyAuthunauthenticatedUserRoleF5DFBD1BRef": {
+   "Type": "String"
+  },
+  "referencetoamplifyhackathonmarshurtasandbox123939c82eauthNestedStackauthNestedStackResource0793AF54Outputsamplifyhackathonmarshurtasandbox123939c82eauthamplifyAuthIdentityPool3A618007Ref": {
+   "Type": "String"
+  }
+ },
+ "Conditions": {
+  "HasEnvironmentParameter": {
+   "Fn::Not": [
+    {
+     "Fn::Equals": [
+      "NONE",
+      "NONE"
+     ]
+    }
+   ]
+  },
+  "ShouldUsePayPerRequestBilling": {
+   "Fn::Equals": [
+    {
+     "Ref": "DynamoDBBillingMode"
+    },
+    "PAY_PER_REQUEST"
+   ]
+  },
+  "ShouldUsePointInTimeRecovery": {
+   "Fn::Equals": [
+    {
+     "Ref": "DynamoDBEnablePointInTimeRecovery"
+    },
+    "true"
+   ]
+  },
+  "CDKMetadataAvailable": {
+   "Fn::Or": [
+    {
+     "Fn::Or": [
+      {
+       "Fn::Equals": [
+        {
+         "Ref": "AWS::Region"
+        },
+        "af-south-1"
+       ]
+      },
+      {
+       "Fn::Equals": [
+        {
+         "Ref": "AWS::Region"
+        },
+        "ap-east-1"
+       ]
+      },
+      {
+       "Fn::Equals": [
+        {
+         "Ref": "AWS::Region"
+        },
+        "ap-northeast-1"
+       ]
+      },
+      {
+       "Fn::Equals": [
+        {
+         "Ref": "AWS::Region"
+        },
+        "ap-northeast-2"
+       ]
+      },
+      {
+       "Fn::Equals": [
+        {
+         "Ref": "AWS::Region"
+        },
+        "ap-northeast-3"
+       ]
+      },
+      {
+       "Fn::Equals": [
+        {
+         "Ref": "AWS::Region"
+        },
+        "ap-south-1"
+       ]
+      },
+      {
+       "Fn::Equals": [
+        {
+         "Ref": "AWS::Region"
+        },
+        "ap-south-2"
+       ]
+      },
+      {
+       "Fn::Equals": [
+        {
+         "Ref": "AWS::Region"
+        },
+        "ap-southeast-1"
+       ]
+      },
+      {
+       "Fn::Equals": [
+        {
+         "Ref": "AWS::Region"
+        },
+        "ap-southeast-2"
+       ]
+      },
+      {
+       "Fn::Equals": [
+        {
+         "Ref": "AWS::Region"
+        },
+        "ap-southeast-3"
+       ]
+      }
+     ]
+    },
+    {
+     "Fn::Or": [
+      {
+       "Fn::Equals": [
+        {
+         "Ref": "AWS::Region"
+        },
+        "ap-southeast-4"
+       ]
+      },
+      {
+       "Fn::Equals": [
+        {
+         "Ref": "AWS::Region"
+        },
+        "ca-central-1"
+       ]
+      },
+      {
+       "Fn::Equals": [
+        {
+         "Ref": "AWS::Region"
+        },
+        "ca-west-1"
+       ]
+      },
+      {
+       "Fn::Equals": [
+        {
+         "Ref": "AWS::Region"
+        },
+        "cn-north-1"
+       ]
+      },
+      {
+       "Fn::Equals": [
+        {
+         "Ref": "AWS::Region"
+        },
+        "cn-northwest-1"
+       ]
+      },
+      {
+       "Fn::Equals": [
+        {
+         "Ref": "AWS::Region"
+        },
+        "eu-central-1"
+       ]
+      },
+      {
+       "Fn::Equals": [
+        {
+         "Ref": "AWS::Region"
+        },
+        "eu-central-2"
+       ]
+      },
+      {
+       "Fn::Equals": [
+        {
+         "Ref": "AWS::Region"
+        },
+        "eu-north-1"
+       ]
+      },
+      {
+       "Fn::Equals": [
+        {
+         "Ref": "AWS::Region"
+        },
+        "eu-south-1"
+       ]
+      },
+      {
+       "Fn::Equals": [
+        {
+         "Ref": "AWS::Region"
+        },
+        "eu-south-2"
+       ]
+      }
+     ]
+    },
+    {
+     "Fn::Or": [
+      {
+       "Fn::Equals": [
+        {
+         "Ref": "AWS::Region"
+        },
+        "eu-west-1"
+       ]
+      },
+      {
+       "Fn::Equals": [
+        {
+         "Ref": "AWS::Region"
+        },
+        "eu-west-2"
+       ]
+      },
+      {
+       "Fn::Equals": [
+        {
+         "Ref": "AWS::Region"
+        },
+        "eu-west-3"
+       ]
+      },
+      {
+       "Fn::Equals": [
+        {
+         "Ref": "AWS::Region"
+        },
+        "il-central-1"
+       ]
+      },
+      {
+       "Fn::Equals": [
+        {
+         "Ref": "AWS::Region"
+        },
+        "me-central-1"
+       ]
+      },
+      {
+       "Fn::Equals": [
+        {
+         "Ref": "AWS::Region"
+        },
+        "me-south-1"
+       ]
+      },
+      {
+       "Fn::Equals": [
+        {
+         "Ref": "AWS::Region"
+        },
+        "sa-east-1"
+       ]
+      },
+      {
+       "Fn::Equals": [
+        {
+         "Ref": "AWS::Region"
+        },
+        "us-east-1"
+       ]
+      },
+      {
+       "Fn::Equals": [
+        {
+         "Ref": "AWS::Region"
+        },
+        "us-east-2"
+       ]
+      },
+      {
+       "Fn::Equals": [
+        {
+         "Ref": "AWS::Region"
+        },
+        "us-west-1"
+       ]
+      }
+     ]
+    },
+    {
+     "Fn::Equals": [
+      {
+       "Ref": "AWS::Region"
+      },
+      "us-west-2"
+     ]
+    }
+   ]
+  }
+ },
+ "Resources": {
+  "CropTable": {
+   "Type": "Custom::AmplifyDynamoDBTable",
+   "Properties": {
+    "ServiceToken": {
+     "Ref": "referencetoamplifyhackathonmarshurtasandbox123939c82edataamplifyDataAmplifyTableManagerNestedStackAmplifyTableManagerNestedStackResource7D05FBC4Outputsamplifyhackathonmarshurtasandbox123939c82edataamplifyDataAmplifyTableManagerTableManagerC44AD76E4"
+    },
+    "tableName": {
+     "Fn::Join": [
+      "",
+      [
+       "Crop-",
+       {
+        "Ref": "referencetoamplifyhackathonmarshurtasandbox123939c82edataamplifyDataGraphQLAPI90B2654BApiId"
+       },
+       "-NONE"
+      ]
+     ]
+    },
+    "attributeDefinitions": [
+     {
+      "attributeName": "id",
+      "attributeType": "S"
+     }
+    ],
+    "keySchema": [
+     {
+      "attributeName": "id",
+      "keyType": "HASH"
+     }
+    ],
+    "provisionedThroughput": {
+     "Fn::If": [
+      "ShouldUsePayPerRequestBilling",
+      {
+       "Ref": "AWS::NoValue"
+      },
+      {
+       "ReadCapacityUnits": {
+        "Ref": "DynamoDBModelTableReadIOPS"
+       },
+       "WriteCapacityUnits": {
+        "Ref": "DynamoDBModelTableWriteIOPS"
+       }
+      }
+     ]
+    },
+    "sseSpecification": {
+     "sseEnabled": false
+    },
+    "streamSpecification": {
+     "streamViewType": "NEW_AND_OLD_IMAGES"
+    },
+    "deletionProtectionEnabled": false,
+    "allowDestructiveGraphqlSchemaUpdates": true,
+    "replaceTableUponGsiUpdate": true,
+    "pointInTimeRecoverySpecification": {
+     "Fn::If": [
+      "ShouldUsePointInTimeRecovery",
+      {
+       "PointInTimeRecoveryEnabled": true
+      },
+      {
+       "Ref": "AWS::NoValue"
+      }
+     ]
+    },
+    "billingMode": {
+     "Fn::If": [
+      "ShouldUsePayPerRequestBilling",
+      "PAY_PER_REQUEST",
+      {
+       "Ref": "AWS::NoValue"
+      }
+     ]
+    }
+   },
+   "UpdateReplacePolicy": "Delete",
+   "DeletionPolicy": "Delete",
+   "Metadata": {
+    "aws:cdk:path": "amplify-hackathonmars-hurta-sandbox-123939c82e/data/amplifyData/Crop/CropTable/Default/Default"
+   }
+  },
+  "CropIAMRoleDDD80B4B": {
+   "Type": "AWS::IAM::Role",
+   "Properties": {
+    "AssumeRolePolicyDocument": {
+     "Statement": [
+      {
+       "Action": "sts:AssumeRole",
+       "Effect": "Allow",
+       "Principal": {
+        "Service": "appsync.amazonaws.com"
+       }
+      }
+     ],
+     "Version": "2012-10-17"
+    },
+    "Policies": [
+     {
+      "PolicyDocument": {
+       "Statement": [
+        {
+         "Action": [
+          "dynamodb:BatchGetItem",
+          "dynamodb:BatchWriteItem",
+          "dynamodb:PutItem",
+          "dynamodb:DeleteItem",
+          "dynamodb:GetItem",
+          "dynamodb:Scan",
+          "dynamodb:Query",
+          "dynamodb:UpdateItem",
+          "dynamodb:ConditionCheckItem",
+          "dynamodb:DescribeTable",
+          "dynamodb:GetRecords",
+          "dynamodb:GetShardIterator"
+         ],
+         "Effect": "Allow",
+         "Resource": [
+          {
+           "Fn::Sub": [
+            "arn:${AWS::Partition}:dynamodb:${AWS::Region}:${AWS::AccountId}:table/${tablename}",
+            {
+             "tablename": {
+              "Fn::Join": [
+               "",
+               [
+                "Crop-",
+                {
+                 "Ref": "referencetoamplifyhackathonmarshurtasandbox123939c82edataamplifyDataGraphQLAPI90B2654BApiId"
+                },
+                "-NONE"
+               ]
+              ]
+             }
+            }
+           ]
+          },
+          {
+           "Fn::Sub": [
+            "arn:${AWS::Partition}:dynamodb:${AWS::Region}:${AWS::AccountId}:table/${tablename}/*",
+            {
+             "tablename": {
+              "Fn::Join": [
+               "",
+               [
+                "Crop-",
+                {
+                 "Ref": "referencetoamplifyhackathonmarshurtasandbox123939c82edataamplifyDataGraphQLAPI90B2654BApiId"
+                },
+                "-NONE"
+               ]
+              ]
+             }
+            }
+           ]
+          }
+         ]
+        }
+       ],
+       "Version": "2012-10-17"
+      },
+      "PolicyName": "DynamoDBAccess"
+     }
+    ],
+    "RoleName": {
+     "Fn::Join": [
+      "",
+      [
+       "CropIAMRole881310-",
+       {
+        "Ref": "referencetoamplifyhackathonmarshurtasandbox123939c82edataamplifyDataGraphQLAPI90B2654BApiId"
+       },
+       "-NONE"
+      ]
+     ]
+    },
+    "Tags": [
+     {
+      "Key": "amplify:deployment-type",
+      "Value": "sandbox"
+     },
+     {
+      "Key": "amplify:friendly-name",
+      "Value": "amplifyData"
+     },
+     {
+      "Key": "created-by",
+      "Value": "amplify"
+     }
+    ]
+   },
+   "UpdateReplacePolicy": "Delete",
+   "DeletionPolicy": "Delete",
+   "Metadata": {
+    "aws:cdk:path": "amplify-hackathonmars-hurta-sandbox-123939c82e/data/amplifyData/Crop/CropIAMRole/Resource"
+   }
+  },
+  "CropDataSource": {
+   "Type": "AWS::AppSync::DataSource",
+   "Properties": {
+    "ApiId": {
+     "Ref": "referencetoamplifyhackathonmarshurtasandbox123939c82edataamplifyDataGraphQLAPI90B2654BApiId"
+    },
+    "DynamoDBConfig": {
+     "AwsRegion": {
+      "Ref": "AWS::Region"
+     },
+     "TableName": {
+      "Fn::Select": [
+       1,
+       {
+        "Fn::Split": [
+         "/",
+         {
+          "Fn::Select": [
+           5,
+           {
+            "Fn::Split": [
+             ":",
+             {
+              "Fn::GetAtt": [
+               "CropTable",
+               "TableArn"
+              ]
+             }
+            ]
+           }
+          ]
+         }
+        ]
+       }
+      ]
+     }
+    },
+    "Name": "CropTable",
+    "ServiceRoleArn": {
+     "Fn::GetAtt": [
+      "CropIAMRoleDDD80B4B",
+      "Arn"
+     ]
+    },
+    "Type": "AMAZON_DYNAMODB"
+   },
+   "DependsOn": [
+    "CropIAMRoleDDD80B4B"
+   ],
+   "UpdateReplacePolicy": "Delete",
+   "DeletionPolicy": "Delete",
+   "Metadata": {
+    "aws:cdk:path": "amplify-hackathonmars-hurta-sandbox-123939c82e/data/amplifyData/Crop/CropDataSource/Resource"
+   }
+  },
+  "QuerygetCropauth0FunctionQuerygetCropauth0FunctionAppSyncFunction3978770E": {
+   "Type": "AWS::AppSync::FunctionConfiguration",
+   "Properties": {
+    "ApiId": {
+     "Ref": "referencetoamplifyhackathonmarshurtasandbox123939c82edataamplifyDataGraphQLAPI90B2654BApiId"
+    },
+    "DataSourceName": {
+     "Ref": "referencetoamplifyhackathonmarshurtasandbox123939c82edataamplifyDataGraphQLAPINONEDS57A4E1B6Name"
+    },
+    "FunctionVersion": "2018-05-29",
+    "Name": "QuerygetCropauth0Function",
+    "RequestMappingTemplateS3Location": {
+     "Fn::Sub": "s3://cdk-hnb659fds-assets-${AWS::AccountId}-${AWS::Region}/e7b2a5c2142d48e60eebe8e4beed7cc465c87e36229199889878edae668ef132.vtl"
+    },
+    "ResponseMappingTemplate": "$util.toJson({})"
+   },
+   "UpdateReplacePolicy": "Delete",
+   "DeletionPolicy": "Delete",
+   "Metadata": {
+    "aws:cdk:path": "amplify-hackathonmars-hurta-sandbox-123939c82e/data/amplifyData/Crop/QuerygetCropauth0Function/QuerygetCropauth0Function.AppSyncFunction"
+   }
+  },
+  "QuerygetCroppostAuth0FunctionQuerygetCroppostAuth0FunctionAppSyncFunction1C9AF72F": {
+   "Type": "AWS::AppSync::FunctionConfiguration",
+   "Properties": {
+    "ApiId": {
+     "Ref": "referencetoamplifyhackathonmarshurtasandbox123939c82edataamplifyDataGraphQLAPI90B2654BApiId"
+    },
+    "DataSourceName": {
+     "Ref": "referencetoamplifyhackathonmarshurtasandbox123939c82edataamplifyDataGraphQLAPINONEDS57A4E1B6Name"
+    },
+    "FunctionVersion": "2018-05-29",
+    "Name": "QuerygetCroppostAuth0Function",
+    "RequestMappingTemplateS3Location": {
+     "Fn::Sub": "s3://cdk-hnb659fds-assets-${AWS::AccountId}-${AWS::Region}/c1721bcd774e27c514d3454b5be4f9bdd094c0161b57ddf053d618e3b0086a77.vtl"
+    },
+    "ResponseMappingTemplate": "$util.toJson({})"
+   },
+   "UpdateReplacePolicy": "Delete",
+   "DeletionPolicy": "Delete",
+   "Metadata": {
+    "aws:cdk:path": "amplify-hackathonmars-hurta-sandbox-123939c82e/data/amplifyData/Crop/QuerygetCroppostAuth0Function/QuerygetCroppostAuth0Function.AppSyncFunction"
+   }
+  },
+  "QueryGetCropDataResolverFnQueryGetCropDataResolverFnAppSyncFunction6D52C0F2": {
+   "Type": "AWS::AppSync::FunctionConfiguration",
+   "Properties": {
+    "ApiId": {
+     "Ref": "referencetoamplifyhackathonmarshurtasandbox123939c82edataamplifyDataGraphQLAPI90B2654BApiId"
+    },
+    "DataSourceName": {
+     "Fn::GetAtt": [
+      "CropDataSource",
+      "Name"
+     ]
+    },
+    "FunctionVersion": "2018-05-29",
+    "Name": "QueryGetCropDataResolverFn",
+    "RequestMappingTemplateS3Location": {
+     "Fn::Sub": "s3://cdk-hnb659fds-assets-${AWS::AccountId}-${AWS::Region}/08f4d557693d96c1a4efba0f9dc91330e4b19772fd5477c156468843e3d9cb5e.vtl"
+    },
+    "ResponseMappingTemplateS3Location": {
+     "Fn::Sub": "s3://cdk-hnb659fds-assets-${AWS::AccountId}-${AWS::Region}/4c6a2d29f01c6091bd1d9afe16e5849d456c96f17c3b215938c8067399532719.vtl"
+    }
+   },
+   "DependsOn": [
+    "CropDataSource"
+   ],
+   "UpdateReplacePolicy": "Delete",
+   "DeletionPolicy": "Delete",
+   "Metadata": {
+    "aws:cdk:path": "amplify-hackathonmars-hurta-sandbox-123939c82e/data/amplifyData/Crop/QueryGetCropDataResolverFn/QueryGetCropDataResolverFn.AppSyncFunction"
+   }
+  },
+  "GetCropResolver": {
+   "Type": "AWS::AppSync::Resolver",
+   "Properties": {
+    "ApiId": {
+     "Ref": "referencetoamplifyhackathonmarshurtasandbox123939c82edataamplifyDataGraphQLAPI90B2654BApiId"
+    },
+    "FieldName": "getCrop",
+    "Kind": "PIPELINE",
+    "PipelineConfig": {
+     "Functions": [
+      {
+       "Fn::GetAtt": [
+        "QuerygetCropauth0FunctionQuerygetCropauth0FunctionAppSyncFunction3978770E",
+        "FunctionId"
+       ]
+      },
+      {
+       "Fn::GetAtt": [
+        "QuerygetCroppostAuth0FunctionQuerygetCroppostAuth0FunctionAppSyncFunction1C9AF72F",
+        "FunctionId"
+       ]
+      },
+      {
+       "Fn::GetAtt": [
+        "QueryGetCropDataResolverFnQueryGetCropDataResolverFnAppSyncFunction6D52C0F2",
+        "FunctionId"
+       ]
+      }
+     ]
+    },
+    "RequestMappingTemplate": {
+     "Fn::Join": [
+      "",
+      [
+       "$util.qr($ctx.stash.put(\"typeName\", \"Query\"))\n$util.qr($ctx.stash.put(\"fieldName\", \"getCrop\"))\n$util.qr($ctx.stash.put(\"conditions\", []))\n$util.qr($ctx.stash.put(\"metadata\", {}))\n$util.qr($ctx.stash.metadata.put(\"dataSourceType\", \"AMAZON_DYNAMODB\"))\n$util.qr($ctx.stash.metadata.put(\"apiId\", \"",
+       {
+        "Ref": "referencetoamplifyhackathonmarshurtasandbox123939c82edataamplifyDataGraphQLAPI90B2654BApiId"
+       },
+       "\"))\n$util.qr($ctx.stash.put(\"connectionAttributes\", {}))\n$util.qr($ctx.stash.put(\"tableName\", \"",
+       {
+        "Fn::Select": [
+         1,
+         {
+          "Fn::Split": [
+           "/",
+           {
+            "Fn::Select": [
+             5,
+             {
+              "Fn::Split": [
+               ":",
+               {
+                "Fn::GetAtt": [
+                 "CropTable",
+                 "TableArn"
+                ]
+               }
+              ]
+             }
+            ]
+           }
+          ]
+         }
+        ]
+       },
+       "\"))\n$util.qr($ctx.stash.put(\"authRole\", \"arn:",
+       {
+        "Ref": "AWS::Partition"
+       },
+       ":sts::",
+       {
+        "Ref": "AWS::AccountId"
+       },
+       ":assumed-role/",
+       {
+        "Ref": "referencetoamplifyhackathonmarshurtasandbox123939c82eauthNestedStackauthNestedStackResource0793AF54Outputsamplifyhackathonmarshurtasandbox123939c82eauthamplifyAuthauthenticatedUserRoleD3DC2A83Ref"
+       },
+       "/CognitoIdentityCredentials\"))\n$util.qr($ctx.stash.put(\"unauthRole\", \"arn:",
+       {
+        "Ref": "AWS::Partition"
+       },
+       ":sts::",
+       {
+        "Ref": "AWS::AccountId"
+       },
+       ":assumed-role/",
+       {
+        "Ref": "referencetoamplifyhackathonmarshurtasandbox123939c82eauthNestedStackauthNestedStackResource0793AF54Outputsamplifyhackathonmarshurtasandbox123939c82eauthamplifyAuthunauthenticatedUserRoleF5DFBD1BRef"
+       },
+       "/CognitoIdentityCredentials\"))\n$util.qr($ctx.stash.put(\"identityPoolId\", \"",
+       {
+        "Ref": "referencetoamplifyhackathonmarshurtasandbox123939c82eauthNestedStackauthNestedStackResource0793AF54Outputsamplifyhackathonmarshurtasandbox123939c82eauthamplifyAuthIdentityPool3A618007Ref"
+       },
+       "\"))\n$util.qr($ctx.stash.put(\"adminRoles\", []))\n$util.toJson({})"
+      ]
+     ]
+    },
+    "ResponseMappingTemplate": "$util.toJson($ctx.prev.result)",
+    "TypeName": "Query"
+   },
+   "UpdateReplacePolicy": "Delete",
+   "DeletionPolicy": "Delete",
+   "Metadata": {
+    "aws:cdk:path": "amplify-hackathonmars-hurta-sandbox-123939c82e/data/amplifyData/Crop/queryGetCropResolver"
+   }
+  },
+  "QuerylistCropsauth0FunctionQuerylistCropsauth0FunctionAppSyncFunction80D78D19": {
+   "Type": "AWS::AppSync::FunctionConfiguration",
+   "Properties": {
+    "ApiId": {
+     "Ref": "referencetoamplifyhackathonmarshurtasandbox123939c82edataamplifyDataGraphQLAPI90B2654BApiId"
+    },
+    "DataSourceName": {
+     "Ref": "referencetoamplifyhackathonmarshurtasandbox123939c82edataamplifyDataGraphQLAPINONEDS57A4E1B6Name"
+    },
+    "FunctionVersion": "2018-05-29",
+    "Name": "QuerylistCropsauth0Function",
+    "RequestMappingTemplateS3Location": {
+     "Fn::Sub": "s3://cdk-hnb659fds-assets-${AWS::AccountId}-${AWS::Region}/e7b2a5c2142d48e60eebe8e4beed7cc465c87e36229199889878edae668ef132.vtl"
+    },
+    "ResponseMappingTemplate": "$util.toJson({})"
+   },
+   "UpdateReplacePolicy": "Delete",
+   "DeletionPolicy": "Delete",
+   "Metadata": {
+    "aws:cdk:path": "amplify-hackathonmars-hurta-sandbox-123939c82e/data/amplifyData/Crop/QuerylistCropsauth0Function/QuerylistCropsauth0Function.AppSyncFunction"
+   }
+  },
+  "QuerylistCropspostAuth0FunctionQuerylistCropspostAuth0FunctionAppSyncFunction28BEE1D3": {
+   "Type": "AWS::AppSync::FunctionConfiguration",
+   "Properties": {
+    "ApiId": {
+     "Ref": "referencetoamplifyhackathonmarshurtasandbox123939c82edataamplifyDataGraphQLAPI90B2654BApiId"
+    },
+    "DataSourceName": {
+     "Ref": "referencetoamplifyhackathonmarshurtasandbox123939c82edataamplifyDataGraphQLAPINONEDS57A4E1B6Name"
+    },
+    "FunctionVersion": "2018-05-29",
+    "Name": "QuerylistCropspostAuth0Function",
+    "RequestMappingTemplateS3Location": {
+     "Fn::Sub": "s3://cdk-hnb659fds-assets-${AWS::AccountId}-${AWS::Region}/c1721bcd774e27c514d3454b5be4f9bdd094c0161b57ddf053d618e3b0086a77.vtl"
+    },
+    "ResponseMappingTemplate": "$util.toJson({})"
+   },
+   "UpdateReplacePolicy": "Delete",
+   "DeletionPolicy": "Delete",
+   "Metadata": {
+    "aws:cdk:path": "amplify-hackathonmars-hurta-sandbox-123939c82e/data/amplifyData/Crop/QuerylistCropspostAuth0Function/QuerylistCropspostAuth0Function.AppSyncFunction"
+   }
+  },
+  "QueryListCropsDataResolverFnQueryListCropsDataResolverFnAppSyncFunction9CCF4634": {
+   "Type": "AWS::AppSync::FunctionConfiguration",
+   "Properties": {
+    "ApiId": {
+     "Ref": "referencetoamplifyhackathonmarshurtasandbox123939c82edataamplifyDataGraphQLAPI90B2654BApiId"
+    },
+    "DataSourceName": {
+     "Fn::GetAtt": [
+      "CropDataSource",
+      "Name"
+     ]
+    },
+    "FunctionVersion": "2018-05-29",
+    "Name": "QueryListCropsDataResolverFn",
+    "RequestMappingTemplateS3Location": {
+     "Fn::Sub": "s3://cdk-hnb659fds-assets-${AWS::AccountId}-${AWS::Region}/9fcbe070ecd3023c5bf5b966fa9584757db9762eef123bad0820bd87591b2174.vtl"
+    },
+    "ResponseMappingTemplateS3Location": {
+     "Fn::Sub": "s3://cdk-hnb659fds-assets-${AWS::AccountId}-${AWS::Region}/cc01911d0269d4080ea57505dc445dfc315ef7ad85d3d9d4ea1357858bff451d.vtl"
+    }
+   },
+   "DependsOn": [
+    "CropDataSource"
+   ],
+   "UpdateReplacePolicy": "Delete",
+   "DeletionPolicy": "Delete",
+   "Metadata": {
+    "aws:cdk:path": "amplify-hackathonmars-hurta-sandbox-123939c82e/data/amplifyData/Crop/QueryListCropsDataResolverFn/QueryListCropsDataResolverFn.AppSyncFunction"
+   }
+  },
+  "ListCropResolver": {
+   "Type": "AWS::AppSync::Resolver",
+   "Properties": {
+    "ApiId": {
+     "Ref": "referencetoamplifyhackathonmarshurtasandbox123939c82edataamplifyDataGraphQLAPI90B2654BApiId"
+    },
+    "FieldName": "listCrops",
+    "Kind": "PIPELINE",
+    "PipelineConfig": {
+     "Functions": [
+      {
+       "Fn::GetAtt": [
+        "QuerylistCropsauth0FunctionQuerylistCropsauth0FunctionAppSyncFunction80D78D19",
+        "FunctionId"
+       ]
+      },
+      {
+       "Fn::GetAtt": [
+        "QuerylistCropspostAuth0FunctionQuerylistCropspostAuth0FunctionAppSyncFunction28BEE1D3",
+        "FunctionId"
+       ]
+      },
+      {
+       "Fn::GetAtt": [
+        "QueryListCropsDataResolverFnQueryListCropsDataResolverFnAppSyncFunction9CCF4634",
+        "FunctionId"
+       ]
+      }
+     ]
+    },
+    "RequestMappingTemplate": {
+     "Fn::Join": [
+      "",
+      [
+       "$util.qr($ctx.stash.put(\"typeName\", \"Query\"))\n$util.qr($ctx.stash.put(\"fieldName\", \"listCrops\"))\n$util.qr($ctx.stash.put(\"conditions\", []))\n$util.qr($ctx.stash.put(\"metadata\", {}))\n$util.qr($ctx.stash.metadata.put(\"dataSourceType\", \"AMAZON_DYNAMODB\"))\n$util.qr($ctx.stash.metadata.put(\"apiId\", \"",
+       {
+        "Ref": "referencetoamplifyhackathonmarshurtasandbox123939c82edataamplifyDataGraphQLAPI90B2654BApiId"
+       },
+       "\"))\n$util.qr($ctx.stash.put(\"connectionAttributes\", {}))\n$util.qr($ctx.stash.put(\"tableName\", \"",
+       {
+        "Fn::Select": [
+         1,
+         {
+          "Fn::Split": [
+           "/",
+           {
+            "Fn::Select": [
+             5,
+             {
+              "Fn::Split": [
+               ":",
+               {
+                "Fn::GetAtt": [
+                 "CropTable",
+                 "TableArn"
+                ]
+               }
+              ]
+             }
+            ]
+           }
+          ]
+         }
+        ]
+       },
+       "\"))\n$util.qr($ctx.stash.put(\"authRole\", \"arn:",
+       {
+        "Ref": "AWS::Partition"
+       },
+       ":sts::",
+       {
+        "Ref": "AWS::AccountId"
+       },
+       ":assumed-role/",
+       {
+        "Ref": "referencetoamplifyhackathonmarshurtasandbox123939c82eauthNestedStackauthNestedStackResource0793AF54Outputsamplifyhackathonmarshurtasandbox123939c82eauthamplifyAuthauthenticatedUserRoleD3DC2A83Ref"
+       },
+       "/CognitoIdentityCredentials\"))\n$util.qr($ctx.stash.put(\"unauthRole\", \"arn:",
+       {
+        "Ref": "AWS::Partition"
+       },
+       ":sts::",
+       {
+        "Ref": "AWS::AccountId"
+       },
+       ":assumed-role/",
+       {
+        "Ref": "referencetoamplifyhackathonmarshurtasandbox123939c82eauthNestedStackauthNestedStackResource0793AF54Outputsamplifyhackathonmarshurtasandbox123939c82eauthamplifyAuthunauthenticatedUserRoleF5DFBD1BRef"
+       },
+       "/CognitoIdentityCredentials\"))\n$util.qr($ctx.stash.put(\"identityPoolId\", \"",
+       {
+        "Ref": "referencetoamplifyhackathonmarshurtasandbox123939c82eauthNestedStackauthNestedStackResource0793AF54Outputsamplifyhackathonmarshurtasandbox123939c82eauthamplifyAuthIdentityPool3A618007Ref"
+       },
+       "\"))\n$util.qr($ctx.stash.put(\"adminRoles\", []))\n$util.toJson({})"
+      ]
+     ]
+    },
+    "ResponseMappingTemplate": "$util.toJson($ctx.prev.result)",
+    "TypeName": "Query"
+   },
+   "UpdateReplacePolicy": "Delete",
+   "DeletionPolicy": "Delete",
+   "Metadata": {
+    "aws:cdk:path": "amplify-hackathonmars-hurta-sandbox-123939c82e/data/amplifyData/Crop/queryListCropsResolver"
+   }
+  },
+  "MutationcreateCropinit0FunctionMutationcreateCropinit0FunctionAppSyncFunction310671B8": {
+   "Type": "AWS::AppSync::FunctionConfiguration",
+   "Properties": {
+    "ApiId": {
+     "Ref": "referencetoamplifyhackathonmarshurtasandbox123939c82edataamplifyDataGraphQLAPI90B2654BApiId"
+    },
+    "DataSourceName": {
+     "Ref": "referencetoamplifyhackathonmarshurtasandbox123939c82edataamplifyDataGraphQLAPINONEDS57A4E1B6Name"
+    },
+    "FunctionVersion": "2018-05-29",
+    "Name": "MutationcreateCropinit0Function",
+    "RequestMappingTemplateS3Location": {
+     "Fn::Sub": "s3://cdk-hnb659fds-assets-${AWS::AccountId}-${AWS::Region}/a183ddccbd956316c38ef97177b8f088ef0826f62023323f5ae6053d348ccffc.vtl"
+    },
+    "ResponseMappingTemplate": "$util.toJson({})"
+   },
+   "UpdateReplacePolicy": "Delete",
+   "DeletionPolicy": "Delete",
+   "Metadata": {
+    "aws:cdk:path": "amplify-hackathonmars-hurta-sandbox-123939c82e/data/amplifyData/Crop/MutationcreateCropinit0Function/MutationcreateCropinit0Function.AppSyncFunction"
+   }
+  },
+  "MutationcreateCropauth0FunctionMutationcreateCropauth0FunctionAppSyncFunctionDF5EC52B": {
+   "Type": "AWS::AppSync::FunctionConfiguration",
+   "Properties": {
+    "ApiId": {
+     "Ref": "referencetoamplifyhackathonmarshurtasandbox123939c82edataamplifyDataGraphQLAPI90B2654BApiId"
+    },
+    "DataSourceName": {
+     "Ref": "referencetoamplifyhackathonmarshurtasandbox123939c82edataamplifyDataGraphQLAPINONEDS57A4E1B6Name"
+    },
+    "FunctionVersion": "2018-05-29",
+    "Name": "MutationcreateCropauth0Function",
+    "RequestMappingTemplateS3Location": {
+     "Fn::Sub": "s3://cdk-hnb659fds-assets-${AWS::AccountId}-${AWS::Region}/687e5bb5b18cd04d8e695d1f85ad9d43df05210383aba8097d72910c47b3e7e1.vtl"
+    },
+    "ResponseMappingTemplate": "$util.toJson({})"
+   },
+   "UpdateReplacePolicy": "Delete",
+   "DeletionPolicy": "Delete",
+   "Metadata": {
+    "aws:cdk:path": "amplify-hackathonmars-hurta-sandbox-123939c82e/data/amplifyData/Crop/MutationcreateCropauth0Function/MutationcreateCropauth0Function.AppSyncFunction"
+   }
+  },
+  "MutationcreateCroppostAuth0FunctionMutationcreateCroppostAuth0FunctionAppSyncFunction37861A02": {
+   "Type": "AWS::AppSync::FunctionConfiguration",
+   "Properties": {
+    "ApiId": {
+     "Ref": "referencetoamplifyhackathonmarshurtasandbox123939c82edataamplifyDataGraphQLAPI90B2654BApiId"
+    },
+    "DataSourceName": {
+     "Ref": "referencetoamplifyhackathonmarshurtasandbox123939c82edataamplifyDataGraphQLAPINONEDS57A4E1B6Name"
+    },
+    "FunctionVersion": "2018-05-29",
+    "Name": "MutationcreateCroppostAuth0Function",
+    "RequestMappingTemplateS3Location": {
+     "Fn::Sub": "s3://cdk-hnb659fds-assets-${AWS::AccountId}-${AWS::Region}/c1721bcd774e27c514d3454b5be4f9bdd094c0161b57ddf053d618e3b0086a77.vtl"
+    },
+    "ResponseMappingTemplate": "$util.toJson({})"
+   },
+   "UpdateReplacePolicy": "Delete",
+   "DeletionPolicy": "Delete",
+   "Metadata": {
+    "aws:cdk:path": "amplify-hackathonmars-hurta-sandbox-123939c82e/data/amplifyData/Crop/MutationcreateCroppostAuth0Function/MutationcreateCroppostAuth0Function.AppSyncFunction"
+   }
+  },
+  "MutationCreateCropDataResolverFnMutationCreateCropDataResolverFnAppSyncFunctionF3269371": {
+   "Type": "AWS::AppSync::FunctionConfiguration",
+   "Properties": {
+    "ApiId": {
+     "Ref": "referencetoamplifyhackathonmarshurtasandbox123939c82edataamplifyDataGraphQLAPI90B2654BApiId"
+    },
+    "DataSourceName": {
+     "Fn::GetAtt": [
+      "CropDataSource",
+      "Name"
+     ]
+    },
+    "FunctionVersion": "2018-05-29",
+    "Name": "MutationCreateCropDataResolverFn",
+    "RequestMappingTemplateS3Location": {
+     "Fn::Sub": "s3://cdk-hnb659fds-assets-${AWS::AccountId}-${AWS::Region}/67767dc215024d20f6aed0462fc03d7b4081fe8ddc87accf19630274a11a2427.vtl"
+    },
+    "ResponseMappingTemplateS3Location": {
+     "Fn::Sub": "s3://cdk-hnb659fds-assets-${AWS::AccountId}-${AWS::Region}/f4a52b72209a9dfa197b5e7367a5c378c5bb86de6e29ddd9e48b49a3fe54b249.vtl"
+    }
+   },
+   "DependsOn": [
+    "CropDataSource"
+   ],
+   "UpdateReplacePolicy": "Delete",
+   "DeletionPolicy": "Delete",
+   "Metadata": {
+    "aws:cdk:path": "amplify-hackathonmars-hurta-sandbox-123939c82e/data/amplifyData/Crop/MutationCreateCropDataResolverFn/MutationCreateCropDataResolverFn.AppSyncFunction"
+   }
+  },
+  "CreateCropResolver": {
+   "Type": "AWS::AppSync::Resolver",
+   "Properties": {
+    "ApiId": {
+     "Ref": "referencetoamplifyhackathonmarshurtasandbox123939c82edataamplifyDataGraphQLAPI90B2654BApiId"
+    },
+    "FieldName": "createCrop",
+    "Kind": "PIPELINE",
+    "PipelineConfig": {
+     "Functions": [
+      {
+       "Fn::GetAtt": [
+        "MutationcreateCropinit0FunctionMutationcreateCropinit0FunctionAppSyncFunction310671B8",
+        "FunctionId"
+       ]
+      },
+      {
+       "Fn::GetAtt": [
+        "MutationcreateCropauth0FunctionMutationcreateCropauth0FunctionAppSyncFunctionDF5EC52B",
+        "FunctionId"
+       ]
+      },
+      {
+       "Fn::GetAtt": [
+        "MutationcreateCroppostAuth0FunctionMutationcreateCroppostAuth0FunctionAppSyncFunction37861A02",
+        "FunctionId"
+       ]
+      },
+      {
+       "Fn::GetAtt": [
+        "MutationCreateCropDataResolverFnMutationCreateCropDataResolverFnAppSyncFunctionF3269371",
+        "FunctionId"
+       ]
+      }
+     ]
+    },
+    "RequestMappingTemplate": {
+     "Fn::Join": [
+      "",
+      [
+       "$util.qr($ctx.stash.put(\"typeName\", \"Mutation\"))\n$util.qr($ctx.stash.put(\"fieldName\", \"createCrop\"))\n$util.qr($ctx.stash.put(\"conditions\", []))\n$util.qr($ctx.stash.put(\"metadata\", {}))\n$util.qr($ctx.stash.metadata.put(\"dataSourceType\", \"AMAZON_DYNAMODB\"))\n$util.qr($ctx.stash.metadata.put(\"apiId\", \"",
+       {
+        "Ref": "referencetoamplifyhackathonmarshurtasandbox123939c82edataamplifyDataGraphQLAPI90B2654BApiId"
+       },
+       "\"))\n$util.qr($ctx.stash.put(\"connectionAttributes\", {}))\n$util.qr($ctx.stash.put(\"tableName\", \"",
+       {
+        "Fn::Select": [
+         1,
+         {
+          "Fn::Split": [
+           "/",
+           {
+            "Fn::Select": [
+             5,
+             {
+              "Fn::Split": [
+               ":",
+               {
+                "Fn::GetAtt": [
+                 "CropTable",
+                 "TableArn"
+                ]
+               }
+              ]
+             }
+            ]
+           }
+          ]
+         }
+        ]
+       },
+       "\"))\n$util.qr($ctx.stash.put(\"authRole\", \"arn:",
+       {
+        "Ref": "AWS::Partition"
+       },
+       ":sts::",
+       {
+        "Ref": "AWS::AccountId"
+       },
+       ":assumed-role/",
+       {
+        "Ref": "referencetoamplifyhackathonmarshurtasandbox123939c82eauthNestedStackauthNestedStackResource0793AF54Outputsamplifyhackathonmarshurtasandbox123939c82eauthamplifyAuthauthenticatedUserRoleD3DC2A83Ref"
+       },
+       "/CognitoIdentityCredentials\"))\n$util.qr($ctx.stash.put(\"unauthRole\", \"arn:",
+       {
+        "Ref": "AWS::Partition"
+       },
+       ":sts::",
+       {
+        "Ref": "AWS::AccountId"
+       },
+       ":assumed-role/",
+       {
+        "Ref": "referencetoamplifyhackathonmarshurtasandbox123939c82eauthNestedStackauthNestedStackResource0793AF54Outputsamplifyhackathonmarshurtasandbox123939c82eauthamplifyAuthunauthenticatedUserRoleF5DFBD1BRef"
+       },
+       "/CognitoIdentityCredentials\"))\n$util.qr($ctx.stash.put(\"identityPoolId\", \"",
+       {
+        "Ref": "referencetoamplifyhackathonmarshurtasandbox123939c82eauthNestedStackauthNestedStackResource0793AF54Outputsamplifyhackathonmarshurtasandbox123939c82eauthamplifyAuthIdentityPool3A618007Ref"
+       },
+       "\"))\n$util.qr($ctx.stash.put(\"adminRoles\", []))\n$util.toJson({})"
+      ]
+     ]
+    },
+    "ResponseMappingTemplate": "$util.toJson($ctx.prev.result)",
+    "TypeName": "Mutation"
+   },
+   "UpdateReplacePolicy": "Delete",
+   "DeletionPolicy": "Delete",
+   "Metadata": {
+    "aws:cdk:path": "amplify-hackathonmars-hurta-sandbox-123939c82e/data/amplifyData/Crop/mutationCreateCropResolver"
+   }
+  },
+  "MutationupdateCropinit0FunctionMutationupdateCropinit0FunctionAppSyncFunctionA1A5CEEF": {
+   "Type": "AWS::AppSync::FunctionConfiguration",
+   "Properties": {
+    "ApiId": {
+     "Ref": "referencetoamplifyhackathonmarshurtasandbox123939c82edataamplifyDataGraphQLAPI90B2654BApiId"
+    },
+    "DataSourceName": {
+     "Ref": "referencetoamplifyhackathonmarshurtasandbox123939c82edataamplifyDataGraphQLAPINONEDS57A4E1B6Name"
+    },
+    "FunctionVersion": "2018-05-29",
+    "Name": "MutationupdateCropinit0Function",
+    "RequestMappingTemplateS3Location": {
+     "Fn::Sub": "s3://cdk-hnb659fds-assets-${AWS::AccountId}-${AWS::Region}/06db846fd14e6fc371f22b12b5545ba8e2dbfeda85d8c8d586c71c282166657b.vtl"
+    },
+    "ResponseMappingTemplate": "$util.toJson({})"
+   },
+   "UpdateReplacePolicy": "Delete",
+   "DeletionPolicy": "Delete",
+   "Metadata": {
+    "aws:cdk:path": "amplify-hackathonmars-hurta-sandbox-123939c82e/data/amplifyData/Crop/MutationupdateCropinit0Function/MutationupdateCropinit0Function.AppSyncFunction"
+   }
+  },
+  "MutationupdateCropauth0FunctionMutationupdateCropauth0FunctionAppSyncFunctionB2EEEDD1": {
+   "Type": "AWS::AppSync::FunctionConfiguration",
+   "Properties": {
+    "ApiId": {
+     "Ref": "referencetoamplifyhackathonmarshurtasandbox123939c82edataamplifyDataGraphQLAPI90B2654BApiId"
+    },
+    "DataSourceName": {
+     "Fn::GetAtt": [
+      "CropDataSource",
+      "Name"
+     ]
+    },
+    "FunctionVersion": "2018-05-29",
+    "Name": "MutationupdateCropauth0Function",
+    "RequestMappingTemplateS3Location": {
+     "Fn::Sub": "s3://cdk-hnb659fds-assets-${AWS::AccountId}-${AWS::Region}/1f5fed297da9c32ae3af922bf3a38ccf23b956078887d16891ec06c20c64722c.vtl"
+    },
+    "ResponseMappingTemplateS3Location": {
+     "Fn::Sub": "s3://cdk-hnb659fds-assets-${AWS::AccountId}-${AWS::Region}/035bca645c95ac13c5dbae712a5a00df2f0b40b2772e5077b865722057d0b2b7.vtl"
+    }
+   },
+   "DependsOn": [
+    "CropDataSource"
+   ],
+   "UpdateReplacePolicy": "Delete",
+   "DeletionPolicy": "Delete",
+   "Metadata": {
+    "aws:cdk:path": "amplify-hackathonmars-hurta-sandbox-123939c82e/data/amplifyData/Crop/MutationupdateCropauth0Function/MutationupdateCropauth0Function.AppSyncFunction"
+   }
+  },
+  "MutationupdateCroppostAuth0FunctionMutationupdateCroppostAuth0FunctionAppSyncFunction48245A6C": {
+   "Type": "AWS::AppSync::FunctionConfiguration",
+   "Properties": {
+    "ApiId": {
+     "Ref": "referencetoamplifyhackathonmarshurtasandbox123939c82edataamplifyDataGraphQLAPI90B2654BApiId"
+    },
+    "DataSourceName": {
+     "Ref": "referencetoamplifyhackathonmarshurtasandbox123939c82edataamplifyDataGraphQLAPINONEDS57A4E1B6Name"
+    },
+    "FunctionVersion": "2018-05-29",
+    "Name": "MutationupdateCroppostAuth0Function",
+    "RequestMappingTemplateS3Location": {
+     "Fn::Sub": "s3://cdk-hnb659fds-assets-${AWS::AccountId}-${AWS::Region}/c1721bcd774e27c514d3454b5be4f9bdd094c0161b57ddf053d618e3b0086a77.vtl"
+    },
+    "ResponseMappingTemplate": "$util.toJson({})"
+   },
+   "UpdateReplacePolicy": "Delete",
+   "DeletionPolicy": "Delete",
+   "Metadata": {
+    "aws:cdk:path": "amplify-hackathonmars-hurta-sandbox-123939c82e/data/amplifyData/Crop/MutationupdateCroppostAuth0Function/MutationupdateCroppostAuth0Function.AppSyncFunction"
+   }
+  },
+  "MutationUpdateCropDataResolverFnMutationUpdateCropDataResolverFnAppSyncFunction4A8A7044": {
+   "Type": "AWS::AppSync::FunctionConfiguration",
+   "Properties": {
+    "ApiId": {
+     "Ref": "referencetoamplifyhackathonmarshurtasandbox123939c82edataamplifyDataGraphQLAPI90B2654BApiId"
+    },
+    "DataSourceName": {
+     "Fn::GetAtt": [
+      "CropDataSource",
+      "Name"
+     ]
+    },
+    "FunctionVersion": "2018-05-29",
+    "Name": "MutationUpdateCropDataResolverFn",
+    "RequestMappingTemplateS3Location": {
+     "Fn::Sub": "s3://cdk-hnb659fds-assets-${AWS::AccountId}-${AWS::Region}/474bf0776ec2164a13191d1a0a9e057154931e4918fea5086f49850d02a5371b.vtl"
+    },
+    "ResponseMappingTemplateS3Location": {
+     "Fn::Sub": "s3://cdk-hnb659fds-assets-${AWS::AccountId}-${AWS::Region}/f4a52b72209a9dfa197b5e7367a5c378c5bb86de6e29ddd9e48b49a3fe54b249.vtl"
+    }
+   },
+   "DependsOn": [
+    "CropDataSource"
+   ],
+   "UpdateReplacePolicy": "Delete",
+   "DeletionPolicy": "Delete",
+   "Metadata": {
+    "aws:cdk:path": "amplify-hackathonmars-hurta-sandbox-123939c82e/data/amplifyData/Crop/MutationUpdateCropDataResolverFn/MutationUpdateCropDataResolverFn.AppSyncFunction"
+   }
+  },
+  "UpdateCropResolver": {
+   "Type": "AWS::AppSync::Resolver",
+   "Properties": {
+    "ApiId": {
+     "Ref": "referencetoamplifyhackathonmarshurtasandbox123939c82edataamplifyDataGraphQLAPI90B2654BApiId"
+    },
+    "FieldName": "updateCrop",
+    "Kind": "PIPELINE",
+    "PipelineConfig": {
+     "Functions": [
+      {
+       "Fn::GetAtt": [
+        "MutationupdateCropinit0FunctionMutationupdateCropinit0FunctionAppSyncFunctionA1A5CEEF",
+        "FunctionId"
+       ]
+      },
+      {
+       "Fn::GetAtt": [
+        "MutationupdateCropauth0FunctionMutationupdateCropauth0FunctionAppSyncFunctionB2EEEDD1",
+        "FunctionId"
+       ]
+      },
+      {
+       "Fn::GetAtt": [
+        "MutationupdateCroppostAuth0FunctionMutationupdateCroppostAuth0FunctionAppSyncFunction48245A6C",
+        "FunctionId"
+       ]
+      },
+      {
+       "Fn::GetAtt": [
+        "MutationUpdateCropDataResolverFnMutationUpdateCropDataResolverFnAppSyncFunction4A8A7044",
+        "FunctionId"
+       ]
+      }
+     ]
+    },
+    "RequestMappingTemplate": {
+     "Fn::Join": [
+      "",
+      [
+       "$util.qr($ctx.stash.put(\"typeName\", \"Mutation\"))\n$util.qr($ctx.stash.put(\"fieldName\", \"updateCrop\"))\n$util.qr($ctx.stash.put(\"conditions\", []))\n$util.qr($ctx.stash.put(\"metadata\", {}))\n$util.qr($ctx.stash.metadata.put(\"dataSourceType\", \"AMAZON_DYNAMODB\"))\n$util.qr($ctx.stash.metadata.put(\"apiId\", \"",
+       {
+        "Ref": "referencetoamplifyhackathonmarshurtasandbox123939c82edataamplifyDataGraphQLAPI90B2654BApiId"
+       },
+       "\"))\n$util.qr($ctx.stash.put(\"connectionAttributes\", {}))\n$util.qr($ctx.stash.put(\"tableName\", \"",
+       {
+        "Fn::Select": [
+         1,
+         {
+          "Fn::Split": [
+           "/",
+           {
+            "Fn::Select": [
+             5,
+             {
+              "Fn::Split": [
+               ":",
+               {
+                "Fn::GetAtt": [
+                 "CropTable",
+                 "TableArn"
+                ]
+               }
+              ]
+             }
+            ]
+           }
+          ]
+         }
+        ]
+       },
+       "\"))\n$util.qr($ctx.stash.put(\"authRole\", \"arn:",
+       {
+        "Ref": "AWS::Partition"
+       },
+       ":sts::",
+       {
+        "Ref": "AWS::AccountId"
+       },
+       ":assumed-role/",
+       {
+        "Ref": "referencetoamplifyhackathonmarshurtasandbox123939c82eauthNestedStackauthNestedStackResource0793AF54Outputsamplifyhackathonmarshurtasandbox123939c82eauthamplifyAuthauthenticatedUserRoleD3DC2A83Ref"
+       },
+       "/CognitoIdentityCredentials\"))\n$util.qr($ctx.stash.put(\"unauthRole\", \"arn:",
+       {
+        "Ref": "AWS::Partition"
+       },
+       ":sts::",
+       {
+        "Ref": "AWS::AccountId"
+       },
+       ":assumed-role/",
+       {
+        "Ref": "referencetoamplifyhackathonmarshurtasandbox123939c82eauthNestedStackauthNestedStackResource0793AF54Outputsamplifyhackathonmarshurtasandbox123939c82eauthamplifyAuthunauthenticatedUserRoleF5DFBD1BRef"
+       },
+       "/CognitoIdentityCredentials\"))\n$util.qr($ctx.stash.put(\"identityPoolId\", \"",
+       {
+        "Ref": "referencetoamplifyhackathonmarshurtasandbox123939c82eauthNestedStackauthNestedStackResource0793AF54Outputsamplifyhackathonmarshurtasandbox123939c82eauthamplifyAuthIdentityPool3A618007Ref"
+       },
+       "\"))\n$util.qr($ctx.stash.put(\"adminRoles\", []))\n$util.toJson({})"
+      ]
+     ]
+    },
+    "ResponseMappingTemplate": "$util.toJson($ctx.prev.result)",
+    "TypeName": "Mutation"
+   },
+   "UpdateReplacePolicy": "Delete",
+   "DeletionPolicy": "Delete",
+   "Metadata": {
+    "aws:cdk:path": "amplify-hackathonmars-hurta-sandbox-123939c82e/data/amplifyData/Crop/mutationUpdateCropResolver"
+   }
+  },
+  "MutationdeleteCropauth0FunctionMutationdeleteCropauth0FunctionAppSyncFunction1AFE420E": {
+   "Type": "AWS::AppSync::FunctionConfiguration",
+   "Properties": {
+    "ApiId": {
+     "Ref": "referencetoamplifyhackathonmarshurtasandbox123939c82edataamplifyDataGraphQLAPI90B2654BApiId"
+    },
+    "DataSourceName": {
+     "Fn::GetAtt": [
+      "CropDataSource",
+      "Name"
+     ]
+    },
+    "FunctionVersion": "2018-05-29",
+    "Name": "MutationdeleteCropauth0Function",
+    "RequestMappingTemplateS3Location": {
+     "Fn::Sub": "s3://cdk-hnb659fds-assets-${AWS::AccountId}-${AWS::Region}/1f5fed297da9c32ae3af922bf3a38ccf23b956078887d16891ec06c20c64722c.vtl"
+    },
+    "ResponseMappingTemplateS3Location": {
+     "Fn::Sub": "s3://cdk-hnb659fds-assets-${AWS::AccountId}-${AWS::Region}/04afff6c870576131ba15da50cb5c3c0278fbab9d12c4fd63520a49832c46482.vtl"
+    }
+   },
+   "DependsOn": [
+    "CropDataSource"
+   ],
+   "UpdateReplacePolicy": "Delete",
+   "DeletionPolicy": "Delete",
+   "Metadata": {
+    "aws:cdk:path": "amplify-hackathonmars-hurta-sandbox-123939c82e/data/amplifyData/Crop/MutationdeleteCropauth0Function/MutationdeleteCropauth0Function.AppSyncFunction"
+   }
+  },
+  "MutationdeleteCroppostAuth0FunctionMutationdeleteCroppostAuth0FunctionAppSyncFunctionFA4E9C4E": {
+   "Type": "AWS::AppSync::FunctionConfiguration",
+   "Properties": {
+    "ApiId": {
+     "Ref": "referencetoamplifyhackathonmarshurtasandbox123939c82edataamplifyDataGraphQLAPI90B2654BApiId"
+    },
+    "DataSourceName": {
+     "Ref": "referencetoamplifyhackathonmarshurtasandbox123939c82edataamplifyDataGraphQLAPINONEDS57A4E1B6Name"
+    },
+    "FunctionVersion": "2018-05-29",
+    "Name": "MutationdeleteCroppostAuth0Function",
+    "RequestMappingTemplateS3Location": {
+     "Fn::Sub": "s3://cdk-hnb659fds-assets-${AWS::AccountId}-${AWS::Region}/c1721bcd774e27c514d3454b5be4f9bdd094c0161b57ddf053d618e3b0086a77.vtl"
+    },
+    "ResponseMappingTemplate": "$util.toJson({})"
+   },
+   "UpdateReplacePolicy": "Delete",
+   "DeletionPolicy": "Delete",
+   "Metadata": {
+    "aws:cdk:path": "amplify-hackathonmars-hurta-sandbox-123939c82e/data/amplifyData/Crop/MutationdeleteCroppostAuth0Function/MutationdeleteCroppostAuth0Function.AppSyncFunction"
+   }
+  },
+  "MutationDeleteCropDataResolverFnMutationDeleteCropDataResolverFnAppSyncFunction7E15327D": {
+   "Type": "AWS::AppSync::FunctionConfiguration",
+   "Properties": {
+    "ApiId": {
+     "Ref": "referencetoamplifyhackathonmarshurtasandbox123939c82edataamplifyDataGraphQLAPI90B2654BApiId"
+    },
+    "DataSourceName": {
+     "Fn::GetAtt": [
+      "CropDataSource",
+      "Name"
+     ]
+    },
+    "FunctionVersion": "2018-05-29",
+    "Name": "MutationDeleteCropDataResolverFn",
+    "RequestMappingTemplateS3Location": {
+     "Fn::Sub": "s3://cdk-hnb659fds-assets-${AWS::AccountId}-${AWS::Region}/4f7907d1209a2c9953a0c053df402c634e359546d70c7cc5c2e8e21ea734880f.vtl"
+    },
+    "ResponseMappingTemplateS3Location": {
+     "Fn::Sub": "s3://cdk-hnb659fds-assets-${AWS::AccountId}-${AWS::Region}/f4a52b72209a9dfa197b5e7367a5c378c5bb86de6e29ddd9e48b49a3fe54b249.vtl"
+    }
+   },
+   "DependsOn": [
+    "CropDataSource"
+   ],
+   "UpdateReplacePolicy": "Delete",
+   "DeletionPolicy": "Delete",
+   "Metadata": {
+    "aws:cdk:path": "amplify-hackathonmars-hurta-sandbox-123939c82e/data/amplifyData/Crop/MutationDeleteCropDataResolverFn/MutationDeleteCropDataResolverFn.AppSyncFunction"
+   }
+  },
+  "DeleteCropResolver": {
+   "Type": "AWS::AppSync::Resolver",
+   "Properties": {
+    "ApiId": {
+     "Ref": "referencetoamplifyhackathonmarshurtasandbox123939c82edataamplifyDataGraphQLAPI90B2654BApiId"
+    },
+    "FieldName": "deleteCrop",
+    "Kind": "PIPELINE",
+    "PipelineConfig": {
+     "Functions": [
+      {
+       "Fn::GetAtt": [
+        "MutationdeleteCropauth0FunctionMutationdeleteCropauth0FunctionAppSyncFunction1AFE420E",
+        "FunctionId"
+       ]
+      },
+      {
+       "Fn::GetAtt": [
+        "MutationdeleteCroppostAuth0FunctionMutationdeleteCroppostAuth0FunctionAppSyncFunctionFA4E9C4E",
+        "FunctionId"
+       ]
+      },
+      {
+       "Fn::GetAtt": [
+        "MutationDeleteCropDataResolverFnMutationDeleteCropDataResolverFnAppSyncFunction7E15327D",
+        "FunctionId"
+       ]
+      }
+     ]
+    },
+    "RequestMappingTemplate": {
+     "Fn::Join": [
+      "",
+      [
+       "$util.qr($ctx.stash.put(\"typeName\", \"Mutation\"))\n$util.qr($ctx.stash.put(\"fieldName\", \"deleteCrop\"))\n$util.qr($ctx.stash.put(\"conditions\", []))\n$util.qr($ctx.stash.put(\"metadata\", {}))\n$util.qr($ctx.stash.metadata.put(\"dataSourceType\", \"AMAZON_DYNAMODB\"))\n$util.qr($ctx.stash.metadata.put(\"apiId\", \"",
+       {
+        "Ref": "referencetoamplifyhackathonmarshurtasandbox123939c82edataamplifyDataGraphQLAPI90B2654BApiId"
+       },
+       "\"))\n$util.qr($ctx.stash.put(\"connectionAttributes\", {}))\n$util.qr($ctx.stash.put(\"tableName\", \"",
+       {
+        "Fn::Select": [
+         1,
+         {
+          "Fn::Split": [
+           "/",
+           {
+            "Fn::Select": [
+             5,
+             {
+              "Fn::Split": [
+               ":",
+               {
+                "Fn::GetAtt": [
+                 "CropTable",
+                 "TableArn"
+                ]
+               }
+              ]
+             }
+            ]
+           }
+          ]
+         }
+        ]
+       },
+       "\"))\n$util.qr($ctx.stash.put(\"authRole\", \"arn:",
+       {
+        "Ref": "AWS::Partition"
+       },
+       ":sts::",
+       {
+        "Ref": "AWS::AccountId"
+       },
+       ":assumed-role/",
+       {
+        "Ref": "referencetoamplifyhackathonmarshurtasandbox123939c82eauthNestedStackauthNestedStackResource0793AF54Outputsamplifyhackathonmarshurtasandbox123939c82eauthamplifyAuthauthenticatedUserRoleD3DC2A83Ref"
+       },
+       "/CognitoIdentityCredentials\"))\n$util.qr($ctx.stash.put(\"unauthRole\", \"arn:",
+       {
+        "Ref": "AWS::Partition"
+       },
+       ":sts::",
+       {
+        "Ref": "AWS::AccountId"
+       },
+       ":assumed-role/",
+       {
+        "Ref": "referencetoamplifyhackathonmarshurtasandbox123939c82eauthNestedStackauthNestedStackResource0793AF54Outputsamplifyhackathonmarshurtasandbox123939c82eauthamplifyAuthunauthenticatedUserRoleF5DFBD1BRef"
+       },
+       "/CognitoIdentityCredentials\"))\n$util.qr($ctx.stash.put(\"identityPoolId\", \"",
+       {
+        "Ref": "referencetoamplifyhackathonmarshurtasandbox123939c82eauthNestedStackauthNestedStackResource0793AF54Outputsamplifyhackathonmarshurtasandbox123939c82eauthamplifyAuthIdentityPool3A618007Ref"
+       },
+       "\"))\n$util.qr($ctx.stash.put(\"adminRoles\", []))\n$util.toJson({})"
+      ]
+     ]
+    },
+    "ResponseMappingTemplate": "$util.toJson($ctx.prev.result)",
+    "TypeName": "Mutation"
+   },
+   "UpdateReplacePolicy": "Delete",
+   "DeletionPolicy": "Delete",
+   "Metadata": {
+    "aws:cdk:path": "amplify-hackathonmars-hurta-sandbox-123939c82e/data/amplifyData/Crop/mutationDeleteCropResolver"
+   }
+  },
+  "SubscriptiononCreateCropauth0FunctionSubscriptiononCreateCropauth0FunctionAppSyncFunctionDD7C016A": {
+   "Type": "AWS::AppSync::FunctionConfiguration",
+   "Properties": {
+    "ApiId": {
+     "Ref": "referencetoamplifyhackathonmarshurtasandbox123939c82edataamplifyDataGraphQLAPI90B2654BApiId"
+    },
+    "DataSourceName": {
+     "Ref": "referencetoamplifyhackathonmarshurtasandbox123939c82edataamplifyDataGraphQLAPINONEDS57A4E1B6Name"
+    },
+    "FunctionVersion": "2018-05-29",
+    "Name": "SubscriptiononCreateCropauth0Function",
+    "RequestMappingTemplateS3Location": {
+     "Fn::Sub": "s3://cdk-hnb659fds-assets-${AWS::AccountId}-${AWS::Region}/d01a85a7e1c50273d7078990da300e811095a7671cd5d0d3ac8d475cc4c8b124.vtl"
+    },
+    "ResponseMappingTemplate": "$util.toJson({})"
+   },
+   "UpdateReplacePolicy": "Delete",
+   "DeletionPolicy": "Delete",
+   "Metadata": {
+    "aws:cdk:path": "amplify-hackathonmars-hurta-sandbox-123939c82e/data/amplifyData/Crop/SubscriptiononCreateCropauth0Function/SubscriptiononCreateCropauth0Function.AppSyncFunction"
+   }
+  },
+  "SubscriptiononCreateCroppostAuth0FunctionSubscriptiononCreateCroppostAuth0FunctionAppSyncFunction6998B2DE": {
+   "Type": "AWS::AppSync::FunctionConfiguration",
+   "Properties": {
+    "ApiId": {
+     "Ref": "referencetoamplifyhackathonmarshurtasandbox123939c82edataamplifyDataGraphQLAPI90B2654BApiId"
+    },
+    "DataSourceName": {
+     "Ref": "referencetoamplifyhackathonmarshurtasandbox123939c82edataamplifyDataGraphQLAPINONEDS57A4E1B6Name"
+    },
+    "FunctionVersion": "2018-05-29",
+    "Name": "SubscriptiononCreateCroppostAuth0Function",
+    "RequestMappingTemplateS3Location": {
+     "Fn::Sub": "s3://cdk-hnb659fds-assets-${AWS::AccountId}-${AWS::Region}/c1721bcd774e27c514d3454b5be4f9bdd094c0161b57ddf053d618e3b0086a77.vtl"
+    },
+    "ResponseMappingTemplate": "$util.toJson({})"
+   },
+   "UpdateReplacePolicy": "Delete",
+   "DeletionPolicy": "Delete",
+   "Metadata": {
+    "aws:cdk:path": "amplify-hackathonmars-hurta-sandbox-123939c82e/data/amplifyData/Crop/SubscriptiononCreateCroppostAuth0Function/SubscriptiononCreateCroppostAuth0Function.AppSyncFunction"
+   }
+  },
+  "SubscriptionOnCreateCropDataResolverFnSubscriptionOnCreateCropDataResolverFnAppSyncFunction23690546": {
+   "Type": "AWS::AppSync::FunctionConfiguration",
+   "Properties": {
+    "ApiId": {
+     "Ref": "referencetoamplifyhackathonmarshurtasandbox123939c82edataamplifyDataGraphQLAPI90B2654BApiId"
+    },
+    "DataSourceName": {
+     "Ref": "referencetoamplifyhackathonmarshurtasandbox123939c82edataamplifyDataGraphQLAPINONEDS57A4E1B6Name"
+    },
+    "FunctionVersion": "2018-05-29",
+    "Name": "SubscriptionOnCreateCropDataResolverFn",
+    "RequestMappingTemplateS3Location": {
+     "Fn::Sub": "s3://cdk-hnb659fds-assets-${AWS::AccountId}-${AWS::Region}/fe3c43ada4b9d681a5e2312663ef7a73386424d73b73e51f8e2e9d4b50f7c502.vtl"
+    },
+    "ResponseMappingTemplateS3Location": {
+     "Fn::Sub": "s3://cdk-hnb659fds-assets-${AWS::AccountId}-${AWS::Region}/e0cff47fb007f0bbf2a4e43ca256d6aa7ec109821769fd79fa7c5e83f0e7f9fc.vtl"
+    }
+   },
+   "UpdateReplacePolicy": "Delete",
+   "DeletionPolicy": "Delete",
+   "Metadata": {
+    "aws:cdk:path": "amplify-hackathonmars-hurta-sandbox-123939c82e/data/amplifyData/Crop/SubscriptionOnCreateCropDataResolverFn/SubscriptionOnCreateCropDataResolverFn.AppSyncFunction"
+   }
+  },
+  "SubscriptiononCreateCropResolver": {
+   "Type": "AWS::AppSync::Resolver",
+   "Properties": {
+    "ApiId": {
+     "Ref": "referencetoamplifyhackathonmarshurtasandbox123939c82edataamplifyDataGraphQLAPI90B2654BApiId"
+    },
+    "FieldName": "onCreateCrop",
+    "Kind": "PIPELINE",
+    "PipelineConfig": {
+     "Functions": [
+      {
+       "Fn::GetAtt": [
+        "SubscriptiononCreateCropauth0FunctionSubscriptiononCreateCropauth0FunctionAppSyncFunctionDD7C016A",
+        "FunctionId"
+       ]
+      },
+      {
+       "Fn::GetAtt": [
+        "SubscriptiononCreateCroppostAuth0FunctionSubscriptiononCreateCroppostAuth0FunctionAppSyncFunction6998B2DE",
+        "FunctionId"
+       ]
+      },
+      {
+       "Fn::GetAtt": [
+        "SubscriptionOnCreateCropDataResolverFnSubscriptionOnCreateCropDataResolverFnAppSyncFunction23690546",
+        "FunctionId"
+       ]
+      }
+     ]
+    },
+    "RequestMappingTemplate": {
+     "Fn::Join": [
+      "",
+      [
+       "$util.qr($ctx.stash.put(\"typeName\", \"Subscription\"))\n$util.qr($ctx.stash.put(\"fieldName\", \"onCreateCrop\"))\n$util.qr($ctx.stash.put(\"conditions\", []))\n$util.qr($ctx.stash.put(\"metadata\", {}))\n$util.qr($ctx.stash.metadata.put(\"dataSourceType\", \"NONE\"))\n$util.qr($ctx.stash.metadata.put(\"apiId\", \"",
+       {
+        "Ref": "referencetoamplifyhackathonmarshurtasandbox123939c82edataamplifyDataGraphQLAPI90B2654BApiId"
+       },
+       "\"))\n$util.qr($ctx.stash.put(\"connectionAttributes\", {}))\n\n$util.qr($ctx.stash.put(\"authRole\", \"arn:",
+       {
+        "Ref": "AWS::Partition"
+       },
+       ":sts::",
+       {
+        "Ref": "AWS::AccountId"
+       },
+       ":assumed-role/",
+       {
+        "Ref": "referencetoamplifyhackathonmarshurtasandbox123939c82eauthNestedStackauthNestedStackResource0793AF54Outputsamplifyhackathonmarshurtasandbox123939c82eauthamplifyAuthauthenticatedUserRoleD3DC2A83Ref"
+       },
+       "/CognitoIdentityCredentials\"))\n$util.qr($ctx.stash.put(\"unauthRole\", \"arn:",
+       {
+        "Ref": "AWS::Partition"
+       },
+       ":sts::",
+       {
+        "Ref": "AWS::AccountId"
+       },
+       ":assumed-role/",
+       {
+        "Ref": "referencetoamplifyhackathonmarshurtasandbox123939c82eauthNestedStackauthNestedStackResource0793AF54Outputsamplifyhackathonmarshurtasandbox123939c82eauthamplifyAuthunauthenticatedUserRoleF5DFBD1BRef"
+       },
+       "/CognitoIdentityCredentials\"))\n$util.qr($ctx.stash.put(\"identityPoolId\", \"",
+       {
+        "Ref": "referencetoamplifyhackathonmarshurtasandbox123939c82eauthNestedStackauthNestedStackResource0793AF54Outputsamplifyhackathonmarshurtasandbox123939c82eauthamplifyAuthIdentityPool3A618007Ref"
+       },
+       "\"))\n$util.qr($ctx.stash.put(\"adminRoles\", []))\n$util.toJson({})"
+      ]
+     ]
+    },
+    "ResponseMappingTemplate": "$util.toJson($ctx.prev.result)",
+    "TypeName": "Subscription"
+   },
+   "UpdateReplacePolicy": "Delete",
+   "DeletionPolicy": "Delete",
+   "Metadata": {
+    "aws:cdk:path": "amplify-hackathonmars-hurta-sandbox-123939c82e/data/amplifyData/Crop/subscriptionOnCreateCropResolver"
+   }
+  },
+  "SubscriptiononUpdateCropauth0FunctionSubscriptiononUpdateCropauth0FunctionAppSyncFunction630DE844": {
+   "Type": "AWS::AppSync::FunctionConfiguration",
+   "Properties": {
+    "ApiId": {
+     "Ref": "referencetoamplifyhackathonmarshurtasandbox123939c82edataamplifyDataGraphQLAPI90B2654BApiId"
+    },
+    "DataSourceName": {
+     "Ref": "referencetoamplifyhackathonmarshurtasandbox123939c82edataamplifyDataGraphQLAPINONEDS57A4E1B6Name"
+    },
+    "FunctionVersion": "2018-05-29",
+    "Name": "SubscriptiononUpdateCropauth0Function",
+    "RequestMappingTemplateS3Location": {
+     "Fn::Sub": "s3://cdk-hnb659fds-assets-${AWS::AccountId}-${AWS::Region}/d01a85a7e1c50273d7078990da300e811095a7671cd5d0d3ac8d475cc4c8b124.vtl"
+    },
+    "ResponseMappingTemplate": "$util.toJson({})"
+   },
+   "UpdateReplacePolicy": "Delete",
+   "DeletionPolicy": "Delete",
+   "Metadata": {
+    "aws:cdk:path": "amplify-hackathonmars-hurta-sandbox-123939c82e/data/amplifyData/Crop/SubscriptiononUpdateCropauth0Function/SubscriptiononUpdateCropauth0Function.AppSyncFunction"
+   }
+  },
+  "SubscriptiononUpdateCroppostAuth0FunctionSubscriptiononUpdateCroppostAuth0FunctionAppSyncFunctionC6038D85": {
+   "Type": "AWS::AppSync::FunctionConfiguration",
+   "Properties": {
+    "ApiId": {
+     "Ref": "referencetoamplifyhackathonmarshurtasandbox123939c82edataamplifyDataGraphQLAPI90B2654BApiId"
+    },
+    "DataSourceName": {
+     "Ref": "referencetoamplifyhackathonmarshurtasandbox123939c82edataamplifyDataGraphQLAPINONEDS57A4E1B6Name"
+    },
+    "FunctionVersion": "2018-05-29",
+    "Name": "SubscriptiononUpdateCroppostAuth0Function",
+    "RequestMappingTemplateS3Location": {
+     "Fn::Sub": "s3://cdk-hnb659fds-assets-${AWS::AccountId}-${AWS::Region}/c1721bcd774e27c514d3454b5be4f9bdd094c0161b57ddf053d618e3b0086a77.vtl"
+    },
+    "ResponseMappingTemplate": "$util.toJson({})"
+   },
+   "UpdateReplacePolicy": "Delete",
+   "DeletionPolicy": "Delete",
+   "Metadata": {
+    "aws:cdk:path": "amplify-hackathonmars-hurta-sandbox-123939c82e/data/amplifyData/Crop/SubscriptiononUpdateCroppostAuth0Function/SubscriptiononUpdateCroppostAuth0Function.AppSyncFunction"
+   }
+  },
+  "SubscriptionOnUpdateCropDataResolverFnSubscriptionOnUpdateCropDataResolverFnAppSyncFunction948AE047": {
+   "Type": "AWS::AppSync::FunctionConfiguration",
+   "Properties": {
+    "ApiId": {
+     "Ref": "referencetoamplifyhackathonmarshurtasandbox123939c82edataamplifyDataGraphQLAPI90B2654BApiId"
+    },
+    "DataSourceName": {
+     "Ref": "referencetoamplifyhackathonmarshurtasandbox123939c82edataamplifyDataGraphQLAPINONEDS57A4E1B6Name"
+    },
+    "FunctionVersion": "2018-05-29",
+    "Name": "SubscriptionOnUpdateCropDataResolverFn",
+    "RequestMappingTemplateS3Location": {
+     "Fn::Sub": "s3://cdk-hnb659fds-assets-${AWS::AccountId}-${AWS::Region}/fe3c43ada4b9d681a5e2312663ef7a73386424d73b73e51f8e2e9d4b50f7c502.vtl"
+    },
+    "ResponseMappingTemplateS3Location": {
+     "Fn::Sub": "s3://cdk-hnb659fds-assets-${AWS::AccountId}-${AWS::Region}/e0cff47fb007f0bbf2a4e43ca256d6aa7ec109821769fd79fa7c5e83f0e7f9fc.vtl"
+    }
+   },
+   "UpdateReplacePolicy": "Delete",
+   "DeletionPolicy": "Delete",
+   "Metadata": {
+    "aws:cdk:path": "amplify-hackathonmars-hurta-sandbox-123939c82e/data/amplifyData/Crop/SubscriptionOnUpdateCropDataResolverFn/SubscriptionOnUpdateCropDataResolverFn.AppSyncFunction"
+   }
+  },
+  "SubscriptiononUpdateCropResolver": {
+   "Type": "AWS::AppSync::Resolver",
+   "Properties": {
+    "ApiId": {
+     "Ref": "referencetoamplifyhackathonmarshurtasandbox123939c82edataamplifyDataGraphQLAPI90B2654BApiId"
+    },
+    "FieldName": "onUpdateCrop",
+    "Kind": "PIPELINE",
+    "PipelineConfig": {
+     "Functions": [
+      {
+       "Fn::GetAtt": [
+        "SubscriptiononUpdateCropauth0FunctionSubscriptiononUpdateCropauth0FunctionAppSyncFunction630DE844",
+        "FunctionId"
+       ]
+      },
+      {
+       "Fn::GetAtt": [
+        "SubscriptiononUpdateCroppostAuth0FunctionSubscriptiononUpdateCroppostAuth0FunctionAppSyncFunctionC6038D85",
+        "FunctionId"
+       ]
+      },
+      {
+       "Fn::GetAtt": [
+        "SubscriptionOnUpdateCropDataResolverFnSubscriptionOnUpdateCropDataResolverFnAppSyncFunction948AE047",
+        "FunctionId"
+       ]
+      }
+     ]
+    },
+    "RequestMappingTemplate": {
+     "Fn::Join": [
+      "",
+      [
+       "$util.qr($ctx.stash.put(\"typeName\", \"Subscription\"))\n$util.qr($ctx.stash.put(\"fieldName\", \"onUpdateCrop\"))\n$util.qr($ctx.stash.put(\"conditions\", []))\n$util.qr($ctx.stash.put(\"metadata\", {}))\n$util.qr($ctx.stash.metadata.put(\"dataSourceType\", \"NONE\"))\n$util.qr($ctx.stash.metadata.put(\"apiId\", \"",
+       {
+        "Ref": "referencetoamplifyhackathonmarshurtasandbox123939c82edataamplifyDataGraphQLAPI90B2654BApiId"
+       },
+       "\"))\n$util.qr($ctx.stash.put(\"connectionAttributes\", {}))\n\n$util.qr($ctx.stash.put(\"authRole\", \"arn:",
+       {
+        "Ref": "AWS::Partition"
+       },
+       ":sts::",
+       {
+        "Ref": "AWS::AccountId"
+       },
+       ":assumed-role/",
+       {
+        "Ref": "referencetoamplifyhackathonmarshurtasandbox123939c82eauthNestedStackauthNestedStackResource0793AF54Outputsamplifyhackathonmarshurtasandbox123939c82eauthamplifyAuthauthenticatedUserRoleD3DC2A83Ref"
+       },
+       "/CognitoIdentityCredentials\"))\n$util.qr($ctx.stash.put(\"unauthRole\", \"arn:",
+       {
+        "Ref": "AWS::Partition"
+       },
+       ":sts::",
+       {
+        "Ref": "AWS::AccountId"
+       },
+       ":assumed-role/",
+       {
+        "Ref": "referencetoamplifyhackathonmarshurtasandbox123939c82eauthNestedStackauthNestedStackResource0793AF54Outputsamplifyhackathonmarshurtasandbox123939c82eauthamplifyAuthunauthenticatedUserRoleF5DFBD1BRef"
+       },
+       "/CognitoIdentityCredentials\"))\n$util.qr($ctx.stash.put(\"identityPoolId\", \"",
+       {
+        "Ref": "referencetoamplifyhackathonmarshurtasandbox123939c82eauthNestedStackauthNestedStackResource0793AF54Outputsamplifyhackathonmarshurtasandbox123939c82eauthamplifyAuthIdentityPool3A618007Ref"
+       },
+       "\"))\n$util.qr($ctx.stash.put(\"adminRoles\", []))\n$util.toJson({})"
+      ]
+     ]
+    },
+    "ResponseMappingTemplate": "$util.toJson($ctx.prev.result)",
+    "TypeName": "Subscription"
+   },
+   "UpdateReplacePolicy": "Delete",
+   "DeletionPolicy": "Delete",
+   "Metadata": {
+    "aws:cdk:path": "amplify-hackathonmars-hurta-sandbox-123939c82e/data/amplifyData/Crop/subscriptionOnUpdateCropResolver"
+   }
+  },
+  "SubscriptiononDeleteCropauth0FunctionSubscriptiononDeleteCropauth0FunctionAppSyncFunction412CD554": {
+   "Type": "AWS::AppSync::FunctionConfiguration",
+   "Properties": {
+    "ApiId": {
+     "Ref": "referencetoamplifyhackathonmarshurtasandbox123939c82edataamplifyDataGraphQLAPI90B2654BApiId"
+    },
+    "DataSourceName": {
+     "Ref": "referencetoamplifyhackathonmarshurtasandbox123939c82edataamplifyDataGraphQLAPINONEDS57A4E1B6Name"
+    },
+    "FunctionVersion": "2018-05-29",
+    "Name": "SubscriptiononDeleteCropauth0Function",
+    "RequestMappingTemplateS3Location": {
+     "Fn::Sub": "s3://cdk-hnb659fds-assets-${AWS::AccountId}-${AWS::Region}/d01a85a7e1c50273d7078990da300e811095a7671cd5d0d3ac8d475cc4c8b124.vtl"
+    },
+    "ResponseMappingTemplate": "$util.toJson({})"
+   },
+   "UpdateReplacePolicy": "Delete",
+   "DeletionPolicy": "Delete",
+   "Metadata": {
+    "aws:cdk:path": "amplify-hackathonmars-hurta-sandbox-123939c82e/data/amplifyData/Crop/SubscriptiononDeleteCropauth0Function/SubscriptiononDeleteCropauth0Function.AppSyncFunction"
+   }
+  },
+  "SubscriptiononDeleteCroppostAuth0FunctionSubscriptiononDeleteCroppostAuth0FunctionAppSyncFunction30412FF1": {
+   "Type": "AWS::AppSync::FunctionConfiguration",
+   "Properties": {
+    "ApiId": {
+     "Ref": "referencetoamplifyhackathonmarshurtasandbox123939c82edataamplifyDataGraphQLAPI90B2654BApiId"
+    },
+    "DataSourceName": {
+     "Ref": "referencetoamplifyhackathonmarshurtasandbox123939c82edataamplifyDataGraphQLAPINONEDS57A4E1B6Name"
+    },
+    "FunctionVersion": "2018-05-29",
+    "Name": "SubscriptiononDeleteCroppostAuth0Function",
+    "RequestMappingTemplateS3Location": {
+     "Fn::Sub": "s3://cdk-hnb659fds-assets-${AWS::AccountId}-${AWS::Region}/c1721bcd774e27c514d3454b5be4f9bdd094c0161b57ddf053d618e3b0086a77.vtl"
+    },
+    "ResponseMappingTemplate": "$util.toJson({})"
+   },
+   "UpdateReplacePolicy": "Delete",
+   "DeletionPolicy": "Delete",
+   "Metadata": {
+    "aws:cdk:path": "amplify-hackathonmars-hurta-sandbox-123939c82e/data/amplifyData/Crop/SubscriptiononDeleteCroppostAuth0Function/SubscriptiononDeleteCroppostAuth0Function.AppSyncFunction"
+   }
+  },
+  "SubscriptionOnDeleteCropDataResolverFnSubscriptionOnDeleteCropDataResolverFnAppSyncFunction82F3BA41": {
+   "Type": "AWS::AppSync::FunctionConfiguration",
+   "Properties": {
+    "ApiId": {
+     "Ref": "referencetoamplifyhackathonmarshurtasandbox123939c82edataamplifyDataGraphQLAPI90B2654BApiId"
+    },
+    "DataSourceName": {
+     "Ref": "referencetoamplifyhackathonmarshurtasandbox123939c82edataamplifyDataGraphQLAPINONEDS57A4E1B6Name"
+    },
+    "FunctionVersion": "2018-05-29",
+    "Name": "SubscriptionOnDeleteCropDataResolverFn",
+    "RequestMappingTemplateS3Location": {
+     "Fn::Sub": "s3://cdk-hnb659fds-assets-${AWS::AccountId}-${AWS::Region}/fe3c43ada4b9d681a5e2312663ef7a73386424d73b73e51f8e2e9d4b50f7c502.vtl"
+    },
+    "ResponseMappingTemplateS3Location": {
+     "Fn::Sub": "s3://cdk-hnb659fds-assets-${AWS::AccountId}-${AWS::Region}/e0cff47fb007f0bbf2a4e43ca256d6aa7ec109821769fd79fa7c5e83f0e7f9fc.vtl"
+    }
+   },
+   "UpdateReplacePolicy": "Delete",
+   "DeletionPolicy": "Delete",
+   "Metadata": {
+    "aws:cdk:path": "amplify-hackathonmars-hurta-sandbox-123939c82e/data/amplifyData/Crop/SubscriptionOnDeleteCropDataResolverFn/SubscriptionOnDeleteCropDataResolverFn.AppSyncFunction"
+   }
+  },
+  "SubscriptiononDeleteCropResolver": {
+   "Type": "AWS::AppSync::Resolver",
+   "Properties": {
+    "ApiId": {
+     "Ref": "referencetoamplifyhackathonmarshurtasandbox123939c82edataamplifyDataGraphQLAPI90B2654BApiId"
+    },
+    "FieldName": "onDeleteCrop",
+    "Kind": "PIPELINE",
+    "PipelineConfig": {
+     "Functions": [
+      {
+       "Fn::GetAtt": [
+        "SubscriptiononDeleteCropauth0FunctionSubscriptiononDeleteCropauth0FunctionAppSyncFunction412CD554",
+        "FunctionId"
+       ]
+      },
+      {
+       "Fn::GetAtt": [
+        "SubscriptiononDeleteCroppostAuth0FunctionSubscriptiononDeleteCroppostAuth0FunctionAppSyncFunction30412FF1",
+        "FunctionId"
+       ]
+      },
+      {
+       "Fn::GetAtt": [
+        "SubscriptionOnDeleteCropDataResolverFnSubscriptionOnDeleteCropDataResolverFnAppSyncFunction82F3BA41",
+        "FunctionId"
+       ]
+      }
+     ]
+    },
+    "RequestMappingTemplate": {
+     "Fn::Join": [
+      "",
+      [
+       "$util.qr($ctx.stash.put(\"typeName\", \"Subscription\"))\n$util.qr($ctx.stash.put(\"fieldName\", \"onDeleteCrop\"))\n$util.qr($ctx.stash.put(\"conditions\", []))\n$util.qr($ctx.stash.put(\"metadata\", {}))\n$util.qr($ctx.stash.metadata.put(\"dataSourceType\", \"NONE\"))\n$util.qr($ctx.stash.metadata.put(\"apiId\", \"",
+       {
+        "Ref": "referencetoamplifyhackathonmarshurtasandbox123939c82edataamplifyDataGraphQLAPI90B2654BApiId"
+       },
+       "\"))\n$util.qr($ctx.stash.put(\"connectionAttributes\", {}))\n\n$util.qr($ctx.stash.put(\"authRole\", \"arn:",
+       {
+        "Ref": "AWS::Partition"
+       },
+       ":sts::",
+       {
+        "Ref": "AWS::AccountId"
+       },
+       ":assumed-role/",
+       {
+        "Ref": "referencetoamplifyhackathonmarshurtasandbox123939c82eauthNestedStackauthNestedStackResource0793AF54Outputsamplifyhackathonmarshurtasandbox123939c82eauthamplifyAuthauthenticatedUserRoleD3DC2A83Ref"
+       },
+       "/CognitoIdentityCredentials\"))\n$util.qr($ctx.stash.put(\"unauthRole\", \"arn:",
+       {
+        "Ref": "AWS::Partition"
+       },
+       ":sts::",
+       {
+        "Ref": "AWS::AccountId"
+       },
+       ":assumed-role/",
+       {
+        "Ref": "referencetoamplifyhackathonmarshurtasandbox123939c82eauthNestedStackauthNestedStackResource0793AF54Outputsamplifyhackathonmarshurtasandbox123939c82eauthamplifyAuthunauthenticatedUserRoleF5DFBD1BRef"
+       },
+       "/CognitoIdentityCredentials\"))\n$util.qr($ctx.stash.put(\"identityPoolId\", \"",
+       {
+        "Ref": "referencetoamplifyhackathonmarshurtasandbox123939c82eauthNestedStackauthNestedStackResource0793AF54Outputsamplifyhackathonmarshurtasandbox123939c82eauthamplifyAuthIdentityPool3A618007Ref"
+       },
+       "\"))\n$util.qr($ctx.stash.put(\"adminRoles\", []))\n$util.toJson({})"
+      ]
+     ]
+    },
+    "ResponseMappingTemplate": "$util.toJson($ctx.prev.result)",
+    "TypeName": "Subscription"
+   },
+   "UpdateReplacePolicy": "Delete",
+   "DeletionPolicy": "Delete",
+   "Metadata": {
+    "aws:cdk:path": "amplify-hackathonmars-hurta-sandbox-123939c82e/data/amplifyData/Crop/subscriptionOnDeleteCropResolver"
+   }
+  },
+  "CDKMetadata": {
+   "Type": "AWS::CDK::Metadata",
+   "Properties": {
+    "Analytics": "v2:deflate64:H4sIAAAAAAAA/1WOQW6DQAxFz5L9xE2hF2hAXaYVdB+ZGYMmgAeNPYkixN0rSJWqq+8nP9k/gyx/g9cd3mRvXb8ffAPziUTJ1Yq2N0XLXxhxJKW4QhHYefWBTUUSUrRkiiQaxj9s+TnjTc6zuzOOwTXwjc1ARxQyHkeYqzA87DDQYnCa5M4W5nLTy6ZExfp58j99JLZriSJw67sUcWv0+3m4UlyM5GcUIRV4X8NIDsdke9K1wLK6n0mnpGZb14qd524xHBzBRV6uWQbZAQ67i3i/j4nVjwTVI38AOduDTTYBAAA="
+   },
+   "Metadata": {
+    "aws:cdk:path": "amplify-hackathonmars-hurta-sandbox-123939c82e/data/amplifyData/Crop/CDKMetadata/Default"
+   },
+   "Condition": "CDKMetadataAvailable"
+  }
+ },
+ "Outputs": {
+  "GetAttCropTableStreamArn": {
+   "Description": "Your DynamoDB table StreamArn.",
+   "Value": {
+    "Fn::GetAtt": [
+     "CropTable",
+     "TableStreamArn"
+    ]
+   },
+   "Export": {
+    "Name": {
+     "Fn::Join": [
+      ":",
+      [
+       {
+        "Ref": "referencetoamplifyhackathonmarshurtasandbox123939c82edataamplifyDataGraphQLAPI90B2654BApiId"
+       },
+       "GetAtt:CropTable:StreamArn"
+      ]
+     ]
+    }
+   }
+  },
+  "GetAttCropTableName": {
+   "Description": "Your DynamoDB table name.",
+   "Value": {
+    "Fn::Join": [
+     "",
+     [
+      "Crop-",
+      {
+       "Ref": "referencetoamplifyhackathonmarshurtasandbox123939c82edataamplifyDataGraphQLAPI90B2654BApiId"
+      },
+      "-NONE"
+     ]
+    ]
+   },
+   "Export": {
+    "Name": {
+     "Fn::Join": [
+      ":",
+      [
+       {
+        "Ref": "referencetoamplifyhackathonmarshurtasandbox123939c82edataamplifyDataGraphQLAPI90B2654BApiId"
+       },
+       "GetAtt:CropTable:Name"
+      ]
+     ]
+    }
+   }
+  }
+ }
+}

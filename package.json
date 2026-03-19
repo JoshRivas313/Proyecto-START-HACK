@@ -1,4 +1,7 @@
 {
+  "name": "hackathon-mars",
+  "version": "1.0.0",
+  
   "dependencies": {
     "@angular/cli": "^18.2.12",
     "aws-amplify": "^6.16.3"

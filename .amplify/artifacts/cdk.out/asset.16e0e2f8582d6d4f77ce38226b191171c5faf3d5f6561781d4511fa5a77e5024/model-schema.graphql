@@ -1,0 +1,15 @@
+type Todo @model @auth(rules: [{allow: public, provider: iam}])
+{
+  content: String
+}
+
+type Crop @model @auth(rules: [{allow: public, provider: iam}])
+{
+  name: String
+  health: Float!
+  water: Float!
+  temp: Float!
+  humidity: Float!
+  yieldKg: Float
+  missionDay: Int
+}

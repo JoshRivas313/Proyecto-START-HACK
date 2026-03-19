@@ -12,6 +12,17 @@ const schema = a.schema({
       content: a.string(),
     })
     .authorization((allow) => [allow.guest()]),
+  Crop: a
+    .model({
+      name: a.string(),
+      health: a.float().required(),
+      water: a.float().required(),
+      temp: a.float().required(),
+      humidity: a.float().required(),
+      yieldKg: a.float(),
+      missionDay: a.integer(),
+    })
+    .authorization((allow) => [allow.guest()]),
 });
 
 export type Schema = ClientSchema<typeof schema>;
