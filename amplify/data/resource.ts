@@ -1,4 +1,5 @@
 import { type ClientSchema, a, defineData } from '@aws-amplify/backend';
+import { optimizeCropFunction } from '../functions/optimizeCrop/resource';
 
 /*== STEP 1 ===============================================================
 The section below creates a Todo database table with a "content" field. Try
@@ -22,6 +23,23 @@ const schema = a.schema({
       yieldKg: a.float(),
       missionDay: a.integer(),
     })
+    .authorization((allow) => [allow.guest()]),
+  OptimizeCropOutput: a.customType({
+    success: a.boolean().required(),
+    message: a.string().required(),
+    updatedWater: a.float().required(),
+    updatedTemp: a.float().required(),
+    updatedHumidity: a.float().required()
+  }),
+  optimizeCrop: a.mutation()
+    .arguments({
+      cropName: a.string().required(),
+      currentWater: a.float().required(),
+      currentTemp: a.float().required(),
+      currentHumidity: a.float().required()
+    })
+    .returns(a.ref('OptimizeCropOutput'))
+    .handler(a.handler.function(optimizeCropFunction))
     .authorization((allow) => [allow.guest()]),
 });
 
