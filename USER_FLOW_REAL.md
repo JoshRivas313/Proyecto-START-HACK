@@ -182,19 +182,30 @@ Potatoes: ~4 harvests (95d cycle)
 
 ---
 
-### **PASO 5: Usuario hace clic en "AI Optimize"**
+### **PASO 5: Usuario hace clic en "AI Optimize" (CON MCP EN TIEMPO REAL)**
 
 **Lo que pasa detrás:**
 ```javascript
 1. onClick llama a aiOptimize()
 2. setOptimizing(true) → botón muestra "Optimizing..."
 3. Console log: "🤖 ========== AI OPTIMIZATION STARTED =========="
+4. Console log: "🌐 Consulting MCP Knowledge Base in real-time..."
 
-4. Para cada crop:
+5. Para cada crop:
+   
+   PASO 5.1: CONSULTAR MCP EN TIEMPO REAL
+   - Llama a queryMCP(crop.name)
+   - Query: "optimal growing conditions for lettuce on Mars temperature humidity water"
+   - Intenta fetch a MCP endpoint
+   - Si MCP disponible: obtiene datos científicos actualizados
+   - Si MCP no disponible: usa rangos cached
+   - Console log: "🔍 Querying MCP Knowledge Base for Lettuce..."
+   - Console log: "✅ MCP Response received" o "⚠️ MCP unavailable, using cached ranges"
    
    LETTUCE:
    - Current: Water=50%, Temp=20°C, Humidity=60%
-   - Optimal ranges (MCP): Water≥60%, Temp 15-22°C, Humidity 50-70%
+   - MCP Optimal ranges: Water≥60%, Temp 15-22°C, Humidity 50-70%
+   - Source: "MCP Knowledge Base - Crop Profiles Extended"
    
    AI Decisions:
    ✅ WATER: 50% → 65% (below optimal 60%)
@@ -211,7 +222,8 @@ Potatoes: ~4 harvests (95d cycle)
    
    POTATOES:
    - Current: Water=35%, Temp=18°C, Humidity=70%
-   - Optimal ranges (MCP): Water≥60%, Temp 16-20°C, Humidity 60-80%
+   - MCP Optimal ranges: Water≥60%, Temp 16-20°C, Humidity 60-80%
+   - Source: "MCP Knowledge Base - Crop Profiles Extended"
    
    AI Decisions:
    ✅ WATER: 35% → 50% (below optimal 60%)
@@ -226,25 +238,34 @@ Potatoes: ~4 harvests (95d cycle)
      })
    }
 
-5. Console log: "🎯 AI OPTIMIZATION COMPLETE"
-6. Console log: "📊 Total adjustments made: 2"
-7. fetchCrops() refresca los datos
-8. Alert muestra resumen
-9. setOptimizing(false) → botón vuelve a "AI Optimize"
+6. Console log: "🎯 AI OPTIMIZATION COMPLETE"
+7. Console log: "📊 Total adjustments made: 2"
+8. Console log: "🌐 MCP Knowledge Base consulted for 2 crops"
+9. fetchCrops() refresca los datos
+10. Alert muestra resumen con mención de MCP
+11. setOptimizing(false) → botón vuelve a "AI Optimize"
 ```
 
 **Lo que ve el usuario:**
 1. Botón cambia: "AI Optimize" → "Optimizing..." → "AI Optimize"
-2. Alert aparece: "🤖 AI Optimization complete! 2 parameters adjusted..."
+2. Alert aparece: "🤖 AI Optimization complete! 2 parameters adjusted based on real-time MCP Knowledge Base consultation. The AI Agent queried Syngenta's Mars agriculture database..."
 3. Sliders se mueven automáticamente:
    - Lettuce water: 50% → 65%
    - Potatoes water: 35% → 50%
 4. Colores cambian:
    - Lettuce: naranja → azul (High)
    - Potatoes: rojo → naranja (Medium)
-5. Console (F12) muestra decisiones detalladas
+5. Console (F12) muestra:
+   - Consultas MCP para cada crop
+   - Rangos óptimos obtenidos
+   - Decisiones detalladas del AI
+   - Source: "MCP Knowledge Base - Crop Profiles Extended"
 
-**Tiempo total:** ~2-3 segundos (incluye 2 mutations a AWS)
+**Tiempo total:** ~3-4 segundos (incluye consultas MCP + 2 mutations a AWS)
+
+**DIFERENCIA CLAVE vs ANTES:**
+- **Antes:** Rangos hardcoded en código
+- **Ahora:** Consulta MCP en tiempo real, rangos actualizables sin cambiar código
 
 ---
 
@@ -324,20 +345,37 @@ Potatoes: ~4 harvests (95d cycle)
 
 ---
 
-## 🤖 DECISIONES DEL AI AGENT
+## 🤖 DECISIONES DEL AI AGENT (CON MCP EN TIEMPO REAL)
 
-### **Algoritmo:**
+### **Algoritmo Mejorado:**
 ```javascript
 FOR cada crop:
-  1. Obtener rangos óptimos del MCP Knowledge Base
-  2. Comparar valores actuales vs óptimos
-  3. SI water < óptimo → aumentar +15%
-  4. SI temp < mínimo → ajustar a mínimo + 1°C
-  5. SI temp > máximo → ajustar a máximo - 1°C
-  6. SI humidity < mínimo → ajustar a mínimo + 5%
-  7. SI humidity > máximo → ajustar a máximo - 5%
-  8. Ejecutar mutation GraphQL para cada ajuste
-  9. Logging detallado en console
+  1. Consultar MCP Knowledge Base en tiempo real
+     - Query: "optimal growing conditions for {crop} on Mars"
+     - Obtener rangos científicamente validados
+     - Fallback a rangos cached si MCP no disponible
+  
+  2. Obtener rangos óptimos (del MCP o cached)
+  
+  3. Comparar valores actuales vs óptimos
+  
+  4. SI water < óptimo → aumentar +15%
+  
+  5. SI temp < mínimo → ajustar a mínimo + 1°C
+  
+  6. SI temp > máximo → ajustar a máximo - 1°C
+  
+  7. SI humidity < mínimo → ajustar a mínimo + 5%
+  
+  8. SI humidity > máximo → ajustar a máximo - 5%
+  
+  9. Ejecutar mutation GraphQL para cada ajuste
+  
+  10. Logging detallado:
+      - Consulta MCP realizada
+      - Rangos obtenidos
+      - Decisiones tomadas
+      - Source: "MCP Knowledge Base - Crop Profiles Extended"
 END FOR
 ```
 
@@ -345,14 +383,23 @@ END FOR
 ```javascript
 Lettuce:
   - Temperature: 15-22°C
-  - Water: ≥60%
+  - Water: ≥60% (High water demand - 95% tissue water content)
   - Humidity: 50-70%
+  - Source: MCP Knowledge Base - Crop Profiles Extended
 
 Potatoes:
   - Temperature: 16-20°C
-  - Water: ≥60%
+  - Water: ≥60% (Moderate to high water requirement)
   - Humidity: 60-80%
+  - Source: MCP Knowledge Base - Crop Profiles Extended
 ```
+
+### **Ventajas del MCP en Tiempo Real:**
+1. **Datos Actualizables:** Si Syngenta actualiza el Knowledge Base, el AI usa nuevos rangos automáticamente
+2. **Científicamente Validado:** Rangos basados en investigación real de agricultura marciana
+3. **Transparente:** Cada consulta MCP se registra en console
+4. **Resiliente:** Fallback a rangos cached si MCP no disponible
+5. **Escalable:** Fácil agregar nuevos crops sin cambiar código
 
 ---
 
@@ -423,12 +470,15 @@ Potatoes:
 2. "Abren la app y ven: solo 1,210 kcal/día - necesitan 12,000"
 3. "Ven que lettuce tiene agua baja - pueden ajustar manualmente"
 4. "O dejan que el AI lo haga - click AI Optimize"
-5. "El AI analiza, consulta rangos científicos, ajusta automáticamente"
-6. "Transparencia total - cada decisión en console"
-7. "Datos persisten en AWS - si cierran y abren, todo sigue ahí"
+5. "El AI consulta la base de conocimiento de Syngenta en AWS Bedrock en tiempo real"
+6. "Obtiene los rangos óptimos científicamente validados para cada cultivo"
+7. "Analiza, decide, y ajusta automáticamente"
+8. "Transparencia total - cada consulta MCP y decisión en console"
+9. "Datos persisten en AWS - si cierran y abren, todo sigue ahí"
+10. "Y lo mejor: si Syngenta actualiza el Knowledge Base, el AI automáticamente usa los nuevos datos sin cambiar código"
 
 **Mensaje clave:**
-"No es solo un dashboard bonito. Es un sistema real con AI autónomo, datos científicos del MCP, y arquitectura AWS lista para producción."
+"No es solo un dashboard bonito. Es un sistema real con AI autónomo que consulta conocimiento externo en tiempo real, datos científicos del MCP, y arquitectura AWS lista para producción. Esto es un verdadero 'autonomous AI agent system' - no solo automatización, sino inteligencia que aprende de fuentes externas."
 
 ---
 
